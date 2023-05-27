@@ -5,18 +5,157 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gender Interface!!!!</title>
+    <title>Data Vase Interface</title>
+    <link rel="icon" type="image/png" href="/img/mannetje.png">
+    <link rel="stylesheet" href="/css/main.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dosis&display=swap" rel="stylesheet">
 </head>
 
 <body>
 
-    <canvas id="sim" width="1024" height="768"></canvas>
+<!--The Text-->
+<section class="content">
+    <section class="element" id="element1">
+    <h1>
+        when a <br> 
+        stereotypically <br>
+        male job
+    </h1>
+    </section>
+    <section id="element10">
+    <h2>
+        yes i can!
+    </h2>
+    <h3 class="Text1">
+        Have you ever heard of the butterfly effect? <br> Or how small changes can lead to great progress.<br>
+        Well, get ready, because you're about to learn something! <br><br>
+        Researcher Dries Vervecken went to investigate and discovered that <b>gender-equal job descriptions</b> in gendered langauges (such as Dutch, duh) 
+        have a major effect on children's career interests. <br><br>
+    </h3>
+    <button id="button1" onclick="changeText()">No way. Prove it!</button>
+    </section>
+    <!--
+    <section>
+    <h3>
+        The data vase shows the results - or the data base (got it?!) - of a linguistic intervention. 
+        Vervecken looked into why stereotypically male jobs are so often seen as approriate for only, or at least mostly, men.
+        He figured out that if one addresses a child with both the male and female job title, instead of only the male job title, 
+        this child will find men and women more equally capable to do the job.
+    </h3>
+    <h3>
+        The paper legend shows you how to read the vase. <br>
+        HOWEVER, With me as your guide, you can also search for specific information on the vase itself! <br><br>
+        Make sentences by connecting one person from each column with the next.<br>
+        The lights show you where to look.
+        WHat will you find? Excitement!
+    </h3>
+    </section>
+    -->
+    <section class="element" id="element2">
+        <h2>
+            is described <br> by
+        </h2>
+    </section>
+    <section class="element" id="element6">
+        <p>
+            only its male title
+        </p>
+        <p>
+            both its male <br>
+            and female title
+        </p>
+    </section>
+    <section class="element" id ="element3">
+        <h2>
+            to
+        </h2>
+    </section>
+    <section class="element" id="element7">
+        <p>
+            boys
+        </p>
+        <p>
+            girls
+        </p>
+    </section>
+    <section class="element" id="element4">
+        <h2>
+            of
+        </h2>
+    </section>
+    <section class="element" id="element8">
+        <p>
+            6 years old
+        </p>
+        <p>
+            7 years old
+        </p>
+        <p>
+            8 years old
+        </p>
+        <p>
+            9 years old
+        </p>
+        <p>
+            10 years old
+        </p>
+        <p>
+            11 years old
+        </p>
+        <p>
+            12 years old
+        </p>
+    </section>
+    <section class="element" id="element5">
+        <h2>
+            then they will see <br> the job as <br> approriate for 
+        </h2>
+        <section class="element" id="element9">
+            <p>
+                only men
+            </p>
+            <p>
+                mostly men
+            </p>
+            <p>
+                both men and women
+            </p>
+            <p>
+                mostly women
+            </p>
+            <p>
+                only women
+            </p>
+        </section>
+    </section>
+</section>
 
-    <script src="js/sim.js"></script>
-    <script src="js/peep.js"></script>
-    <script src="js/conn.js"></script>
-    <script src="js/main.js"></script>
+<!--Canvas-->
+<canvas id="sim" width="1024" height="768">
+</canvas>
 
+<!--Link JavaScript-->
+<script src="js/sim.js"></script>
+<script src="js/peep.js"></script>
+<script src="js/conn.js"></script>
+<script src="js/main.js"></script>
+
+<!--The Pencil
+<div id="pencil_container">
+    <canvas id="pencil" width="200" height="200" style="width: 100px; height: 100px; left: 1058px; top: 247px;">
+    </canvas>
+</div>
+-->
+<footer>
+    Gebaseerd op Vervecken, D., & Hannover, B. (2015). Yes I can! Effects of gender fair job descriptions on children’s perceptions of job status, 
+    job difficulty, and vocational self-efficacy. Social Psychology, 46(2), 76–92. https://doi.org/10.1027/1864-9335/a000229
+</footer>
 </body>
+
 
 </html>
