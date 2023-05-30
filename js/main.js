@@ -51,6 +51,9 @@ var isTextModified = false; // Initial state
 function changeText() {
   var buttonElement = document.getElementById("button1");
   var textElements = document.getElementsByClassName("Text1");
+  if (buttonElement.textContent == "Let me start over!") {
+		location.reload();
+	}
 
   for (var i = 0; i < textElements.length; i++) {
     if (textElements[i].innerHTML === "The data vase shows the results - or the data base (got it?!) - of a linguistic intervention. <br> Vervecken looked into why stereotypically male jobs are so often seen as approriate for only, <br> or at least mostly, men. <br><br> He figured out that if one addresses a child with both the male and female job title, <br> instead of only the male job title, <br> this child will find men and women more equally capable to do the job.<br><br>") {

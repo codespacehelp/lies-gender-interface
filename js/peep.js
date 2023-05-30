@@ -11,8 +11,8 @@ class Peep {
 
 /*Eyemovement met limitatie*/
   update() {
-    const mx = this.sim.mouseX;
-    const my = this.sim.mouseY;
+    // const mx = this.sim.mouseX;
+    // const my = this.sim.mouseY;
     this.faceX = (this.sim.mouseX - this.x) / 5;
     this.faceY = (this.sim.mouseY - this.y) / 5;
 

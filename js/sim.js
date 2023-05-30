@@ -23,14 +23,44 @@ class Sim {
   }
 
   /*Als de connectie al bestaat, geen nieuwe connectie maken*/
-  connectionExists(from, to) {
-    for (const conn of this.conns) {
-      if (conn.from === from && conn.to === to) {
-        return true;
-      }
-    }
-    return false;
-  }
+  // connectionExists(from, to) {
+  //   for (const conn of this.conns) {
+  //     if (conn.from === from && conn.to === to) {
+  //       return true;
+  //     }
+  //   }
+  //   return false;
+  // }
+  // checkAndCreateConnection(from, targetPeep) {
+	// 	for (let i = 0; i < this.conns.length; i++) {
+	// 		if ((this.conns[i].from.x == from.x && this.conns[i].to.x == targetPeep.x) || (this.conns[i].from.x == targetPeep.x && this.conns[i].to.x == from.x)) {
+	// 			this.removeConnection(i);
+	// 		}
+	// 	}
+	//   	this.makeNewConnection(from, targetPeep);
+	// }
+
+	// /*Connectie verwijderen*/
+	// removeConnection(i) {
+	// 	this.conns.splice(i, 1);
+	// }
+
+  
+  /* Maak nieuwe connectie als deze valide is */
+  createConnectionIfValid(from, targetPeep) {
+	  if (from.x !== targetPeep.x && targetPeep.x > from.x) {
+		  this.makeNewConnection(from, targetPeep);
+		}
+	}
+	
+	/*Als de connectie al bestaat, connectie verwijderen*/
+	removeConnectionIfExists(from, targetPeep) {
+		for (let i = 0; i < this.conns.length; i++) {
+			if ((this.conns[i].from.x == from.x && this.conns[i].to.x == targetPeep.x) || (this.conns[i].from.x == targetPeep.x && this.conns[i].to.x == from.x)) {
+				this.conns.splice(i, 1);
+			}
+		}
+	}
 
   /*Om te connecteren met lichtjes
   Zo kan event worden doorgestuurd naar Shifter, om dan naar Arduino te gaan*/
@@ -43,12 +73,35 @@ class Sim {
     );
   }
 
+  	/* Start met maken van connectie indien valide */
+    startConnectionIfValid(e, peep) {
+      if (this.conns.length == 0) {
+        this.startConnection(e, peep);
+      }
+      for (let i = 0; i < this.conns.length; i++) {
+        if ((this.conns[i].to.x == peep.x && this.conns[i].to.y == peep.y)) {
+          this.startConnection(e, peep);
+        }
+      }
+    }
+  
+    startConnection(e, peep) {
+      peep.active = true;
+      this.activeConn = new Conn({
+        from: peep,
+        to: {
+          x: e.clientX,
+          y: e.clientY,
+        },
+      });
+    }
+
 /*Aan en af klikken van Peeps
 Om ze actief te maken*/
   onMouseDown(e) {
     const peep = this.hitTest(e.clientX, e.clientY);
     if (peep) {
-      console.log(peep);
+      // console.log(peep);
       peep.active = !peep.active;
       this.activeConn = new Conn({
         from: peep,
@@ -78,9 +131,10 @@ Om ze actief te maken*/
     if (this.activeConn) {
       const targetPeep = this.hitTest(e.clientX, e.clientY);
       if (targetPeep) {
-        if (!this.connectionExists(this.activeConn.from, targetPeep)) {
-          this.makeNewConnection(this.activeConn.from, targetPeep);
-        }
+        // if (!this.connectionExists(this.activeConn.from, targetPeep)) {
+        //   this.makeNewConnection(this.activeConn.from, targetPeep);
+        this.removeConnectionIfExists(this.activeConn.from, targetPeep)
+        this.createConnectionIfValid(this.activeConn.from, targetPeep);
       }
     }
 
@@ -259,7 +313,7 @@ Om ze actief te maken*/
     //     to: this.peeps[2],
     //   })
     // );
-    console.log(this.conns);
+    //console.log(this.conns);
   }
 
 /*Hier oproepen, gemaakt in Peeps
