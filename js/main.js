@@ -4,6 +4,7 @@ let sim, canvas, ctx;
 
 const IMAGES = {
   eyes: "img/eyes.png",
+  blink: "img/blink.png",
   face: "img/face.png",
   faceActive: "img/face-active.png",
 };
