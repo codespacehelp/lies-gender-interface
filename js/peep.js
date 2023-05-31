@@ -9,7 +9,7 @@ class Peep {
     this.sim = config.sim;
     // Om math.random - voor het blinken - te vertragen
     this.blinking = false;
-    this.blinkDelay = getRandomDelay(3000); // Random delay between 0 and 3 seconds
+    this.blinkDelay = getRandomDelay(20000); // Random delay between 0 and 3 seconds
     this.blinkDuration = 200; // Blink animation duration of 200 milliseconds
     this.lastBlinkTime = Date.now();
 
