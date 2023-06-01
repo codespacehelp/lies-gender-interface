@@ -72,7 +72,17 @@ class Peep {
     /*  ctx.fillText(this.label, this.x, this.y + 15);*/
     ctx.textAlign = "center";
   }
+
+  activate() {
+    this.active = true;
+  
+    // Deactivate the peep after a short duration
+    setTimeout(() => {
+      this.active = false;
+    }, 500); // Adjust the duration (in milliseconds) as needed
+  }
 }
+
 
 function getRandomDelay(maxDelay) {
   return Math.random() * maxDelay;

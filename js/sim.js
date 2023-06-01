@@ -135,6 +135,7 @@ Om ze actief te maken*/
         //   this.makeNewConnection(this.activeConn.from, targetPeep);
         this.removeConnectionIfExists(this.activeConn.from, targetPeep)
         this.createConnectionIfValid(this.activeConn.from, targetPeep);
+        targetPeep.active = true;
       }
     }
 
