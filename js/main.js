@@ -71,3 +71,85 @@ function changeText() {
 }
 
 main();
+
+//Connection with Shifter
+const client = mqtt.connect(
+  "mqtt://prickleking364:EoAqmtU9W9XI9fbR@prickleking364.cloud.shiftr.io",
+  {
+    clientId: "javascript",
+  }
+);
+
+client.on("connect", function () {
+  console.log("connected!");
+  client.subscribe("hello");
+});
+
+client.on("message", function (topic, message) {
+  console.log(topic + ": " + message.toString());
+});
+
+
+document.querySelector("#enkel de\nmannelijke titel").addEventListener("click", function () {
+  client.publish("steer", "M");
+});
+
+document.querySelector("de mannelijke en\nvrouwelijke titel").addEventListener("click", function () {
+  client.publish("steer", "H");
+});
+
+document.querySelector("#jongens").addEventListener("click", function () {
+  client.publish("steer", "B");
+});
+
+document.querySelector("meisjes").addEventListener("click", function () {
+  client.publish("steer", "G");
+});
+
+document.querySelector("6 jaar").addEventListener("click", function () {
+  client.publish("steer", "6");
+});
+
+document.querySelector("7 jaar").addEventListener("click", function () {
+  client.publish("steer", "7");
+});
+
+document.querySelector("8 jaar").addEventListener("click", function () {
+  client.publish("steer", "8");
+});
+
+document.querySelector("9 jaar").addEventListener("click", function () {
+  client.publish("steer", "9");
+});
+
+document.querySelector("10 jaar").addEventListener("click", function () {
+  client.publish("steer", "0");
+});
+
+document.querySelector("11 jaar").addEventListener("click", function () {
+  client.publish("steer", "1");
+});
+
+document.querySelector("12 jaar").addEventListener("click", function () {
+  client.publish("steer", "2");
+});
+
+document.querySelector("enkel mannen").addEventListener("click", function () {
+  client.publish("steer", "0");
+});
+
+document.querySelector("voornamelijk mannen").addEventListener("click", function () {
+  client.publish("steer", "M");
+});
+
+document.querySelector("zowel mannen als vrouwen").addEventListener("click", function () {
+  client.publish("steer", "B");
+});
+
+document.querySelector("voornamelijk vrouwen").addEventListener("click", function () {
+  client.publish("steer", "W");
+});
+
+document.querySelector("enkel vrouwen").addEventListener("click", function () {
+  client.publish("steer", "Y");
+});
