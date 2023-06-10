@@ -89,7 +89,6 @@ client.on("message", function (topic, message) {
   console.log(topic + ": " + message.toString());
 });
 
-
 document.querySelector("#enkel de\nmannelijke titel").addEventListener("click", function () {
   client.publish("steer", "M");
 });
