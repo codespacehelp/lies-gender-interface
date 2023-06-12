@@ -83,7 +83,7 @@ main();
 
 //Connection with Shifter
 const client = mqtt.connect(
-  "mqtt://prickleking364:EoAqmtU9W9XI9fbR@prickleking364.cloud.shiftr.io",
+  "mqtts://prickleking364:EoAqmtU9W9XI9fbR@prickleking364.cloud.shiftr.io",
   {
     clientId: "javascript",
   }
