@@ -4,9 +4,9 @@ class Sim {
     this.conns = [];
     this.activeConn = null;
     this.buildSim();
-    window.addEventListener("mousedown", this.onMouseDown.bind(this));
-    window.addEventListener("mousemove", this.onMouseMove.bind(this));
-    window.addEventListener("mouseup", this.onMouseUp.bind(this));
+    window.addEventListener("pointerdown", this.onPointerDown.bind(this));
+    window.addEventListener("pointermove", this.onPointerMove.bind(this));
+    window.addEventListener("pointerup", this.onPointerUp.bind(this));
     //Same maar voor tablet
     // window.addEventListener("touchstart", this.onTouchStart.bind(this));
     // window.addEventListener("touchmove", this.onTouchMove.bind(this));
@@ -36,35 +36,38 @@ class Sim {
   //   return false;
   // }
   // checkAndCreateConnection(from, targetPeep) {
-	// 	for (let i = 0; i < this.conns.length; i++) {
-	// 		if ((this.conns[i].from.x == from.x && this.conns[i].to.x == targetPeep.x) || (this.conns[i].from.x == targetPeep.x && this.conns[i].to.x == from.x)) {
-	// 			this.removeConnection(i);
-	// 		}
-	// 	}
-	//   	this.makeNewConnection(from, targetPeep);
-	// }
+  // 	for (let i = 0; i < this.conns.length; i++) {
+  // 		if ((this.conns[i].from.x == from.x && this.conns[i].to.x == targetPeep.x) || (this.conns[i].from.x == targetPeep.x && this.conns[i].to.x == from.x)) {
+  // 			this.removeConnection(i);
+  // 		}
+  // 	}
+  //   	this.makeNewConnection(from, targetPeep);
+  // }
 
-	// /*Connectie verwijderen*/
-	// removeConnection(i) {
-	// 	this.conns.splice(i, 1);
-	// }
+  // /*Connectie verwijderen*/
+  // removeConnection(i) {
+  // 	this.conns.splice(i, 1);
+  // }
 
-  
   /* Maak nieuwe connectie als deze valide is */
   createConnectionIfValid(from, targetPeep) {
-	  if (from.x !== targetPeep.x && targetPeep.x > from.x) {
-		  this.makeNewConnection(from, targetPeep);
-		}
-	}
-	
-	/*Als de connectie al bestaat, connectie verwijderen*/
-	removeConnectionIfExists(from, targetPeep) {
-		for (let i = 0; i < this.conns.length; i++) {
-			if ((this.conns[i].from.x == from.x && this.conns[i].to.x == targetPeep.x) || (this.conns[i].from.x == targetPeep.x && this.conns[i].to.x == from.x)) {
-				this.conns.splice(i, 1);
-			}
-		}
-	}
+    if (from.x !== targetPeep.x && targetPeep.x > from.x) {
+      this.makeNewConnection(from, targetPeep);
+    }
+  }
+
+  /*Als de connectie al bestaat, connectie verwijderen*/
+  removeConnectionIfExists(from, targetPeep) {
+    for (let i = 0; i < this.conns.length; i++) {
+      if (
+        (this.conns[i].from.x == from.x &&
+          this.conns[i].to.x == targetPeep.x) ||
+        (this.conns[i].from.x == targetPeep.x && this.conns[i].to.x == from.x)
+      ) {
+        this.conns.splice(i, 1);
+      }
+    }
+  }
 
   /*Om te connecteren met lichtjes
   Zo kan event worden doorgestuurd naar Shifter, om dan naar Arduino te gaan*/
@@ -77,20 +80,42 @@ class Sim {
     );
   }
 
-  	/* Start met maken van connectie indien valide */
-    startConnectionIfValid(e, peep) {
-      if (this.conns.length == 0) {
+  /* Start met maken van connectie indien valide */
+  startConnectionIfValid(e, peep) {
+    if (this.conns.length == 0) {
+      this.startConnection(e, peep);
+    }
+    for (let i = 0; i < this.conns.length; i++) {
+      if (this.conns[i].to.x == peep.x && this.conns[i].to.y == peep.y) {
         this.startConnection(e, peep);
       }
-      for (let i = 0; i < this.conns.length; i++) {
-        if ((this.conns[i].to.x == peep.x && this.conns[i].to.y == peep.y)) {
-          this.startConnection(e, peep);
-        }
-      }
     }
-  
-    startConnection(e, peep) {
-      peep.active = true;
+  }
+
+  startConnection(e, peep) {
+    peep.active = true;
+    this.activeConn = new Conn({
+      from: peep,
+      to: {
+        x: e.clientX,
+        y: e.clientY,
+      },
+    });
+  }
+
+  updatePhysicalInterface() {
+    console.log(this.conns);
+
+    // client.publish("chat", "mb6o");
+  }
+
+  /*Aan en af klikken van Peeps
+Om ze actief te maken*/
+  onPointerDown(e) {
+    const peep = this.hitTest(e.clientX, e.clientY);
+    if (peep) {
+      // console.log(peep);
+      peep.active = !peep.active;
       this.activeConn = new Conn({
         from: peep,
         to: {
@@ -99,97 +124,81 @@ class Sim {
         },
       });
     }
-
-/*Aan en af klikken van Peeps
-Om ze actief te maken*/
-  // onMouseDown(e) {
-  //   const peep = this.hitTest(e.clientX, e.clientY);
-  //   if (peep) {
-  //     // console.log(peep);
-  //     peep.active = !peep.active;
-  //     this.activeConn = new Conn({
-  //       from: peep,
-  //       to: {
-  //         x: e.clientX,
-  //         y: e.clientY,
-  //       },
-  //     });
-  //   }
-  // }
-  onTouchStart(e) {
-    const touch = e.touches[0]; // Get the first touch point
-    const peep = this.hitTest(touch.clientX, touch.clientY);
-    if (peep) {
-      peep.active = !peep.active;
-      this.activeConn = new Conn({
-        from: peep,
-        to: {
-          x: touch.clientX,
-          y: touch.clientY,
-        },
-      });
-    }
   }
-
-  // onMouseMove(e) {
-  //   this.mouseX = e.clientX;
-  //   this.mouseY = e.clientY;
-  //   if (this.activeConn) {
-  //     this.activeConn.to = {
-  //       x: e.clientX,
-  //       y: e.clientY,
-  //     };
-  //   }
-  // }
-  onTouchMove(e) {
-    const touch = e.touches[0]; // Get the first touch point
-    this.mouseX = touch.clientX;
-    this.mouseY = touch.clientY;
-    if (this.activeConn) {
-      this.activeConn.to = {
-        x: touch.clientX,
-        y: touch.clientY,
-      };
-    }
-  }
-
-  
-/*Hier wordt ook nieuwe connectie gemaakt*/
-  // onMouseUp(e) {
-  //   for (const peep of this.peeps) {
-  //     peep.active = false;
-  //   }
-  //   if (this.activeConn) {
-  //     const targetPeep = this.hitTest(e.clientX, e.clientY);
-  //     if (targetPeep) {
-  //       // if (!this.connectionExists(this.activeConn.from, targetPeep)) {
-  //       //   this.makeNewConnection(this.activeConn.from, targetPeep);
-  //       this.removeConnectionIfExists(this.activeConn.from, targetPeep)
-  //       this.createConnectionIfValid(this.activeConn.from, targetPeep);
-  //       targetPeep.active = true;
+  //   onTouchStart(e) {
+  //     const touch = e.touches[0]; // Get the first touch point
+  //     const peep = this.hitTest(touch.clientX, touch.clientY);
+  //     if (peep) {
+  //       peep.active = !peep.active;
+  //       this.activeConn = new Conn({
+  //         from: peep,
+  //         to: {
+  //           x: touch.clientX,
+  //           y: touch.clientY,
+  //         },
+  //       });
   //     }
   //   }
 
-  //   this.activeConn = null;
-  // }
-  onTouchEnd(e) {
+  onPointerMove(e) {
+    this.mouseX = e.clientX;
+    this.mouseY = e.clientY;
+    if (this.activeConn) {
+      this.activeConn.to = {
+        x: e.clientX,
+        y: e.clientY,
+      };
+    }
+  }
+  //   onTouchMove(e) {
+  //     const touch = e.touches[0]; // Get the first touch point
+  //     this.mouseX = touch.clientX;
+  //     this.mouseY = touch.clientY;
+  //     if (this.activeConn) {
+  //       this.activeConn.to = {
+  //         x: touch.clientX,
+  //         y: touch.clientY,
+  //       };
+  //     }
+  //   }
+
+  /*Hier wordt ook nieuwe connectie gemaakt*/
+  onPointerUp(e) {
     for (const peep of this.peeps) {
       peep.active = false;
     }
     if (this.activeConn) {
-      const touch = e.changedTouches[0]; // Get the first touch point that ended
-      const targetPeep = this.hitTest(touch.clientX, touch.clientY);
+      const targetPeep = this.hitTest(e.clientX, e.clientY);
       if (targetPeep) {
+        // if (!this.connectionExists(this.activeConn.from, targetPeep)) {
+        //   this.makeNewConnection(this.activeConn.from, targetPeep);
         this.removeConnectionIfExists(this.activeConn.from, targetPeep);
         this.createConnectionIfValid(this.activeConn.from, targetPeep);
+        this.updatePhysicalInterface();
         targetPeep.active = true;
       }
     }
-  
+
     this.activeConn = null;
   }
+  //   onTouchEnd(e) {
+  //     for (const peep of this.peeps) {
+  //       peep.active = false;
+  //     }
+  //     if (this.activeConn) {
+  //       const touch = e.changedTouches[0]; // Get the first touch point that ended
+  //       const targetPeep = this.hitTest(touch.clientX, touch.clientY);
+  //       if (targetPeep) {
+  //         this.removeConnectionIfExists(this.activeConn.from, targetPeep);
+  //         this.createConnectionIfValid(this.activeConn.from, targetPeep);
+  //         targetPeep.active = true;
+  //       }
+  //     }
 
-/*Tekenen Peeps*/
+  //     this.activeConn = null;
+  //   }
+
+  /*Tekenen Peeps*/
   buildSim() {
     this.peeps = [];
     this.peeps.push(
@@ -262,7 +271,7 @@ Om ze actief te maken*/
         sim: this,
       })
     );
-  
+
     this.peeps.push(
       new Peep({
         x: 750,
@@ -272,7 +281,7 @@ Om ze actief te maken*/
         sim: this,
       })
     );
-  
+
     this.peeps.push(
       new Peep({
         x: 750,
@@ -282,7 +291,7 @@ Om ze actief te maken*/
         sim: this,
       })
     );
-  
+
     this.peeps.push(
       new Peep({
         x: 750,
@@ -332,7 +341,7 @@ Om ze actief te maken*/
         sim: this,
       })
     );
-  
+
     this.peeps.push(
       new Peep({
         x: 940,
@@ -342,7 +351,7 @@ Om ze actief te maken*/
         sim: this,
       })
     );
-  
+
     this.peeps.push(
       new Peep({
         x: 940,
@@ -352,7 +361,7 @@ Om ze actief te maken*/
         sim: this,
       })
     );
-  
+
     /*Lijn moet na Peeps worden getekend opdat deze achter de Peeps wordt getoond*/
     this.conns = [];
     // this.conns.push(
@@ -364,7 +373,7 @@ Om ze actief te maken*/
     //console.log(this.conns);
   }
 
-/*Hier oproepen, gemaakt in Peeps
+  /*Hier oproepen, gemaakt in Peeps
 Gaat animaties en simulaties zo draaien
 Zo worden ze elke keer vernieuwd*/
   update() {
