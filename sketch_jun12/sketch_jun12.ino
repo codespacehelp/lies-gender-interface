@@ -3,14 +3,15 @@
 
 #define MIN(a,b) (((a)<(b))?(a):(b))
 
-const char* ssid = "dlink-3MR6";
-const char* password = "royalcheese820";
+// const char* ssid = "CS-IoT";
+// const char* password = "SLA-XTEcScs!";
+const char* ssid = "To Fly for a Wifi";
+const char* password = "Staafmixer";
 
-const char* mqttServer = "discodonkey315.cloud.shiftr.io";
+const char* mqttServer = "prickleking364.cloud.shiftr.io";
 const int mqttPort = 1883;
-const char* mqttUser = "discodonkey315";
-const char* mqttPassword = "J7Z5SMjyxjahZhhP";
-
+const char* mqttUser = "prickleking364";
+const char* mqttPassword = "EoAqmtU9W9XI9fbR";
 
 void onMessage(const char* topic, byte* payload, unsigned int length);
 
@@ -219,9 +220,9 @@ void loop() {
 void reconnect() {
   while (!client.connected()) {
     Serial.print("Attempting MQTT connection...");
-    String clientId = "esp32";
+    String clientId = "esp32s";
     if (client.connect(clientId.c_str(), mqttUser, mqttPassword)) {
-      Serial.println(" OK!");
+      Serial.println("OK!");
       client.publish("chat", "esp32_connected");
       client.subscribe("steer");
 

@@ -274,6 +274,8 @@ Om ze actief te maken*/
         x: 750,
         y: 360,
         label: "8 jaar",
+        index: 2,
+        command: "8",
         active: false,
         sim: this,
       })
@@ -284,6 +286,8 @@ Om ze actief te maken*/
         x: 750,
         y: 445,
         label: "9 jaar",
+        index: 2,
+        command: "9",
         active: false,
         sim: this,
       })
@@ -294,6 +298,8 @@ Om ze actief te maken*/
         x: 750,
         y: 530,
         label: "10 jaar",
+        index: 2,
+        command: "10",
         active: false,
         sim: this,
       })
@@ -304,6 +310,8 @@ Om ze actief te maken*/
         x: 750,
         y: 615,
         label: "11 jaar",
+        index: 2,
+        command: "11",
         active: false,
         sim: this,
       })
@@ -314,6 +322,8 @@ Om ze actief te maken*/
         x: 750,
         y: 700,
         label: "12 jaar",
+        index: 2,
+        command: "12",
         active: false,
         sim: this,
       })
@@ -372,7 +382,7 @@ Om ze actief te maken*/
         x: 940,
         y: 530,
         label: "enkel vrouwen",
-        index: 4,
+        index: 3,
         command: "f",
         active: false,
         sim: this,
