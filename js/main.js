@@ -25,18 +25,20 @@ function preloadImages() {
 
 /*Aangeven om te wachten tot de beelden zijn geladen
 OP het einde moet animate staan, om het effecteif te tekenen*/
-async function main() {
-  const loadedImages = await preloadImages();
-  Object.keys(IMAGES).forEach((key, index) => {
-    IMAGES[key] = loadedImages[index];
+function main() {
+  preloadImages().then((loadedImages) => {
+
+    Object.keys(IMAGES).forEach((key, index) => {
+      IMAGES[key] = loadedImages[index];
+    });
+
+    sim = new Sim();
+
+    canvas = document.getElementById("sim");
+    ctx = canvas.getContext("2d");
+
+    animate();
   });
-
-  sim = new Sim();
-
-  canvas = document.getElementById("sim");
-  ctx = canvas.getContext("2d");
-
-  animate();
 }
 
 function animate() {
