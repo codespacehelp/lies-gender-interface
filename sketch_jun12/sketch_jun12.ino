@@ -170,12 +170,8 @@ void setup() {
   pinMode(GPIOSIG6, OUTPUT);
   pinMode(GPIOSIG7, OUTPUT);
 
-  
-  Serial.begin(115200);
-  
-  
+  Serial.begin(115200); 
 }
-
 
 void loop() {
   digitalWrite(GPIOEN, HIGH);
@@ -183,7 +179,7 @@ void loop() {
 
   Serial.println("Give Option 1");
 
-  while (Serial.available() == 0) {
+  while (Serial.available() > 0) {
   }
 
   String input1 = Serial.readString();
@@ -209,7 +205,7 @@ void loop() {
                   digitalWrite(GPIOS2, LOW);
                   digitalWrite(GPIOS3, LOW);
                   
-                  digitalWrite(GPIOSIG1, LOW);
+                  digitalWrite(GPIOSIG1, HIGH);
                   digitalWrite(GPIOSIG2, LOW);
                   digitalWrite(GPIOSIG3, LOW);
                   digitalWrite(GPIOSIG4, LOW);
@@ -219,11 +215,11 @@ void loop() {
                   break;
                 case 'm':
                   digitalWrite(GPIOS0, LOW);
-                  digitalWrite(GPIOS1, LOW);
-                  digitalWrite(GPIOS2, LOW);
-                  digitalWrite(GPIOS3, LOW);
+                  digitalWrite(GPIOS1, HIGH);
+                  digitalWrite(GPIOS2, HIGH);
+                  digitalWrite(GPIOS3, HIGH);
                   
-                  digitalWrite(GPIOSIG1, LOW);
+                  digitalWrite(GPIOSIG1, HIGH);
                   digitalWrite(GPIOSIG2, LOW);
                   digitalWrite(GPIOSIG3, LOW);
                   digitalWrite(GPIOSIG4, LOW);
@@ -234,11 +230,11 @@ void loop() {
                 case 'b':
                   digitalWrite(GPIOS0, LOW);
                   digitalWrite(GPIOS1, LOW);
-                  digitalWrite(GPIOS2, LOW);
-                  digitalWrite(GPIOS3, LOW);
+                  digitalWrite(GPIOS2, HIGH);
+                  digitalWrite(GPIOS3, HIGH);
                   
                   digitalWrite(GPIOSIG1, LOW);
-                  digitalWrite(GPIOSIG2, LOW);
+                  digitalWrite(GPIOSIG2, HIGH);
                   digitalWrite(GPIOSIG3, LOW);
                   digitalWrite(GPIOSIG4, LOW);
                   digitalWrite(GPIOSIG5, LOW);
@@ -261,13 +257,13 @@ void loop() {
                   break;
                 case 'f':
                   digitalWrite(GPIOS0, LOW);
-                  digitalWrite(GPIOS1, LOW);
-                  digitalWrite(GPIOS2, LOW);
-                  digitalWrite(GPIOS3, LOW);
+                  digitalWrite(GPIOS1, HIGH);
+                  digitalWrite(GPIOS2, HIGH);
+                  digitalWrite(GPIOS3, HIGH);
                   
                   digitalWrite(GPIOSIG1, LOW);
                   digitalWrite(GPIOSIG2, LOW);
-                  digitalWrite(GPIOSIG3, LOW);
+                  digitalWrite(GPIOSIG3, HIGH);
                   digitalWrite(GPIOSIG4, LOW);
                   digitalWrite(GPIOSIG5, LOW);
                   digitalWrite(GPIOSIG6, LOW);
@@ -276,15 +272,14 @@ void loop() {
               }
               break;
             case '7':
-              
               switch (tolower(input4[0])) {
                 case 'o':
-                  digitalWrite(GPIOS0, LOW);
+                  digitalWrite(GPIOS0, HIGH);
                   digitalWrite(GPIOS1, LOW);
                   digitalWrite(GPIOS2, LOW);
                   digitalWrite(GPIOS3, LOW);
                   
-                  digitalWrite(GPIOSIG1, LOW);
+                  digitalWrite(GPIOSIG1, HIGH);
                   digitalWrite(GPIOSIG2, LOW);
                   digitalWrite(GPIOSIG3, LOW);
                   digitalWrite(GPIOSIG4, LOW);
@@ -293,12 +288,12 @@ void loop() {
                   digitalWrite(GPIOSIG7, LOW);
                   break;
                 case 'm':
-                  digitalWrite(GPIOS0, LOW);
-                  digitalWrite(GPIOS1, LOW);
-                  digitalWrite(GPIOS2, LOW);
-                  digitalWrite(GPIOS3, LOW);
+                  digitalWrite(GPIOS0, HIGH);
+                  digitalWrite(GPIOS1, HIGH);
+                  digitalWrite(GPIOS2, HIGH);
+                  digitalWrite(GPIOS3, HIGH);
                   
-                  digitalWrite(GPIOSIG1, LOW);
+                  digitalWrite(GPIOSIG1, HIGH);
                   digitalWrite(GPIOSIG2, LOW);
                   digitalWrite(GPIOSIG3, LOW);
                   digitalWrite(GPIOSIG4, LOW);
@@ -307,13 +302,13 @@ void loop() {
                   digitalWrite(GPIOSIG7, LOW);
                   break;
                 case 'b':
-                  digitalWrite(GPIOS0, LOW);
+                  digitalWrite(GPIOS0, HIGH);
                   digitalWrite(GPIOS1, LOW);
-                  digitalWrite(GPIOS2, LOW);
-                  digitalWrite(GPIOS3, LOW);
+                  digitalWrite(GPIOS2, HIGH);
+                  digitalWrite(GPIOS3, HIGH);
                   
                   digitalWrite(GPIOSIG1, LOW);
-                  digitalWrite(GPIOSIG2, LOW);
+                  digitalWrite(GPIOSIG2, HIGH);
                   digitalWrite(GPIOSIG3, LOW);
                   digitalWrite(GPIOSIG4, LOW);
                   digitalWrite(GPIOSIG5, LOW);
@@ -351,15 +346,14 @@ void loop() {
               }
               break;
             case '8':
-              
               switch (tolower(input4[0])) {
                 case 'o':
                   digitalWrite(GPIOS0, LOW);
-                  digitalWrite(GPIOS1, LOW);
+                  digitalWrite(GPIOS1, HIGH);
                   digitalWrite(GPIOS2, LOW);
                   digitalWrite(GPIOS3, LOW);
                   
-                  digitalWrite(GPIOSIG1, LOW);
+                  digitalWrite(GPIOSIG1, HIGH);
                   digitalWrite(GPIOSIG2, LOW);
                   digitalWrite(GPIOSIG3, LOW);
                   digitalWrite(GPIOSIG4, LOW);
@@ -374,7 +368,7 @@ void loop() {
                   digitalWrite(GPIOS3, LOW);
                   
                   digitalWrite(GPIOSIG1, LOW);
-                  digitalWrite(GPIOSIG2, LOW);
+                  digitalWrite(GPIOSIG2, HIGH);
                   digitalWrite(GPIOSIG3, LOW);
                   digitalWrite(GPIOSIG4, LOW);
                   digitalWrite(GPIOSIG5, LOW);
@@ -383,12 +377,12 @@ void loop() {
                   break;
                 case 'b':
                   digitalWrite(GPIOS0, LOW);
-                  digitalWrite(GPIOS1, LOW);
-                  digitalWrite(GPIOS2, LOW);
-                  digitalWrite(GPIOS3, LOW);
+                  digitalWrite(GPIOS1, HIGH);
+                  digitalWrite(GPIOS2, HIGH);
+                  digitalWrite(GPIOS3, HIGH);
                   
                   digitalWrite(GPIOSIG1, LOW);
-                  digitalWrite(GPIOSIG2, LOW);
+                  digitalWrite(GPIOSIG2, HIGH);
                   digitalWrite(GPIOSIG3, LOW);
                   digitalWrite(GPIOSIG4, LOW);
                   digitalWrite(GPIOSIG5, LOW);
@@ -396,14 +390,14 @@ void loop() {
                   digitalWrite(GPIOSIG7, LOW);
                   break;
                 case 'w':
-                  digitalWrite(GPIOS0, LOW);
-                  digitalWrite(GPIOS1, LOW);
+                  digitalWrite(GPIOS0, HIGH);
+                  digitalWrite(GPIOS1, HIGH);
                   digitalWrite(GPIOS2, LOW);
-                  digitalWrite(GPIOS3, LOW);
+                  digitalWrite(GPIOS3, HIGH);
                   
                   digitalWrite(GPIOSIG1, LOW);
                   digitalWrite(GPIOSIG2, LOW);
-                  digitalWrite(GPIOSIG3, LOW);
+                  digitalWrite(GPIOSIG3, HIGH);
                   digitalWrite(GPIOSIG4, LOW);
                   digitalWrite(GPIOSIG5, LOW);
                   digitalWrite(GPIOSIG6, LOW);
@@ -426,15 +420,14 @@ void loop() {
               }
               break;
             case '9':
-              
               switch (tolower(input4[0])) {
                 case 'o':
-                  digitalWrite(GPIOS0, LOW);
-                  digitalWrite(GPIOS1, LOW);
+                  digitalWrite(GPIOS0, HIGH);
+                  digitalWrite(GPIOS1, HIGH);
                   digitalWrite(GPIOS2, LOW);
                   digitalWrite(GPIOS3, LOW);
                   
-                  digitalWrite(GPIOSIG1, LOW);
+                  digitalWrite(GPIOSIG1, HIGH);
                   digitalWrite(GPIOSIG2, LOW);
                   digitalWrite(GPIOSIG3, LOW);
                   digitalWrite(GPIOSIG4, LOW);
@@ -443,13 +436,13 @@ void loop() {
                   digitalWrite(GPIOSIG7, LOW);
                   break;
                 case 'm':
-                  digitalWrite(GPIOS0, LOW);
+                  digitalWrite(GPIOS0, HIGH);
                   digitalWrite(GPIOS1, LOW);
                   digitalWrite(GPIOS2, LOW);
                   digitalWrite(GPIOS3, LOW);
                   
                   digitalWrite(GPIOSIG1, LOW);
-                  digitalWrite(GPIOSIG2, LOW);
+                  digitalWrite(GPIOSIG2, HIGH);
                   digitalWrite(GPIOSIG3, LOW);
                   digitalWrite(GPIOSIG4, LOW);
                   digitalWrite(GPIOSIG5, LOW);
@@ -457,13 +450,13 @@ void loop() {
                   digitalWrite(GPIOSIG7, LOW);
                   break;
                 case 'b':
-                  digitalWrite(GPIOS0, LOW);
-                  digitalWrite(GPIOS1, LOW);
-                  digitalWrite(GPIOS2, LOW);
-                  digitalWrite(GPIOS3, LOW);
+                  digitalWrite(GPIOS0, HIGH);
+                  digitalWrite(GPIOS1, HIGH);
+                  digitalWrite(GPIOS2, HIGH);
+                  digitalWrite(GPIOS3, HIGH);
                   
                   digitalWrite(GPIOSIG1, LOW);
-                  digitalWrite(GPIOSIG2, LOW);
+                  digitalWrite(GPIOSIG2, HIGH);
                   digitalWrite(GPIOSIG3, LOW);
                   digitalWrite(GPIOSIG4, LOW);
                   digitalWrite(GPIOSIG5, LOW);
@@ -501,15 +494,14 @@ void loop() {
               }
               break;
             case '10':
-              
               switch (tolower(input4[0])) {
                 case 'o':
                   digitalWrite(GPIOS0, LOW);
                   digitalWrite(GPIOS1, LOW);
-                  digitalWrite(GPIOS2, LOW);
+                  digitalWrite(GPIOS2, HIGH);
                   digitalWrite(GPIOS3, LOW);
                   
-                  digitalWrite(GPIOSIG1, LOW);
+                  digitalWrite(GPIOSIG1, HIGH);
                   digitalWrite(GPIOSIG2, LOW);
                   digitalWrite(GPIOSIG3, LOW);
                   digitalWrite(GPIOSIG4, LOW);
@@ -519,12 +511,12 @@ void loop() {
                   break;
                 case 'm':
                   digitalWrite(GPIOS0, LOW);
-                  digitalWrite(GPIOS1, LOW);
+                  digitalWrite(GPIOS1, HIGH);
                   digitalWrite(GPIOS2, LOW);
                   digitalWrite(GPIOS3, LOW);
                   
                   digitalWrite(GPIOSIG1, LOW);
-                  digitalWrite(GPIOSIG2, LOW);
+                  digitalWrite(GPIOSIG2, HIGH);
                   digitalWrite(GPIOSIG3, LOW);
                   digitalWrite(GPIOSIG4, LOW);
                   digitalWrite(GPIOSIG5, LOW);
@@ -539,7 +531,7 @@ void loop() {
                   
                   digitalWrite(GPIOSIG1, LOW);
                   digitalWrite(GPIOSIG2, LOW);
-                  digitalWrite(GPIOSIG3, LOW);
+                  digitalWrite(GPIOSIG3, HIGH);
                   digitalWrite(GPIOSIG4, LOW);
                   digitalWrite(GPIOSIG5, LOW);
                   digitalWrite(GPIOSIG6, LOW);
@@ -548,12 +540,12 @@ void loop() {
                 case 'w':
                   digitalWrite(GPIOS0, LOW);
                   digitalWrite(GPIOS1, LOW);
-                  digitalWrite(GPIOS2, LOW);
-                  digitalWrite(GPIOS3, LOW);
+                  digitalWrite(GPIOS2, HIGH);
+                  digitalWrite(GPIOS3, HIGH);
                   
                   digitalWrite(GPIOSIG1, LOW);
                   digitalWrite(GPIOSIG2, LOW);
-                  digitalWrite(GPIOSIG3, LOW);
+                  digitalWrite(GPIOSIG3, HIGH);
                   digitalWrite(GPIOSIG4, LOW);
                   digitalWrite(GPIOSIG5, LOW);
                   digitalWrite(GPIOSIG6, LOW);
@@ -576,15 +568,14 @@ void loop() {
               }
               break;
             case '11':
-              
               switch (tolower(input4[0])) {
                 case 'o':
-                  digitalWrite(GPIOS0, LOW);
+                  digitalWrite(GPIOS0, HIGH);
                   digitalWrite(GPIOS1, LOW);
-                  digitalWrite(GPIOS2, LOW);
+                  digitalWrite(GPIOS2, HIGH);
                   digitalWrite(GPIOS3, LOW);
                   
-                  digitalWrite(GPIOSIG1, LOW);
+                  digitalWrite(GPIOSIG1, HIGH);
                   digitalWrite(GPIOSIG2, LOW);
                   digitalWrite(GPIOSIG3, LOW);
                   digitalWrite(GPIOSIG4, LOW);
@@ -593,13 +584,13 @@ void loop() {
                   digitalWrite(GPIOSIG7, LOW);
                   break;
                 case 'm':
-                  digitalWrite(GPIOS0, LOW);
-                  digitalWrite(GPIOS1, LOW);
+                  digitalWrite(GPIOS0, HIGH);
+                  digitalWrite(GPIOS1, HIGH);
                   digitalWrite(GPIOS2, LOW);
                   digitalWrite(GPIOS3, LOW);
                   
                   digitalWrite(GPIOSIG1, LOW);
-                  digitalWrite(GPIOSIG2, LOW);
+                  digitalWrite(GPIOSIG2, HIGH);
                   digitalWrite(GPIOSIG3, LOW);
                   digitalWrite(GPIOSIG4, LOW);
                   digitalWrite(GPIOSIG5, LOW);
@@ -607,35 +598,35 @@ void loop() {
                   digitalWrite(GPIOSIG7, LOW);
                   break;
                 case 'b':
-                  digitalWrite(GPIOS0, LOW);
+                  digitalWrite(GPIOS0, HIGH);
                   digitalWrite(GPIOS1, LOW);
                   digitalWrite(GPIOS2, LOW);
                   digitalWrite(GPIOS3, LOW);
                   
                   digitalWrite(GPIOSIG1, LOW);
                   digitalWrite(GPIOSIG2, LOW);
-                  digitalWrite(GPIOSIG3, LOW);
+                  digitalWrite(GPIOSIG3, HIGH);
                   digitalWrite(GPIOSIG4, LOW);
                   digitalWrite(GPIOSIG5, LOW);
                   digitalWrite(GPIOSIG6, LOW);
                   digitalWrite(GPIOSIG7, LOW);
                   break;
                 case 'w':
-                  digitalWrite(GPIOS0, LOW);
+                  digitalWrite(GPIOS0, HIGH);
                   digitalWrite(GPIOS1, LOW);
-                  digitalWrite(GPIOS2, LOW);
-                  digitalWrite(GPIOS3, LOW);
+                  digitalWrite(GPIOS2, HIGH);
+                  digitalWrite(GPIOS3, HIGH);
                   
                   digitalWrite(GPIOSIG1, LOW);
                   digitalWrite(GPIOSIG2, LOW);
-                  digitalWrite(GPIOSIG3, LOW);
+                  digitalWrite(GPIOSIG3, HIGH);
                   digitalWrite(GPIOSIG4, LOW);
                   digitalWrite(GPIOSIG5, LOW);
                   digitalWrite(GPIOSIG6, LOW);
                   digitalWrite(GPIOSIG7, LOW);
                   break;
                 case 'f':
-                  digitalWrite(GPIOS0, LOW);
+                  digitalWrite(GPIOS0, HIGH);
                   digitalWrite(GPIOS1, LOW);
                   digitalWrite(GPIOS2, LOW);
                   digitalWrite(GPIOS3, LOW);
@@ -643,7 +634,7 @@ void loop() {
                   digitalWrite(GPIOSIG1, LOW);
                   digitalWrite(GPIOSIG2, LOW);
                   digitalWrite(GPIOSIG3, LOW);
-                  digitalWrite(GPIOSIG4, LOW);
+                  digitalWrite(GPIOSIG4, HIGH);
                   digitalWrite(GPIOSIG5, LOW);
                   digitalWrite(GPIOSIG6, LOW);
                   digitalWrite(GPIOSIG7, LOW);
@@ -651,15 +642,14 @@ void loop() {
               }
               break;
             case '12':
-              
               switch (tolower(input4[0])) {
                 case 'o':
                   digitalWrite(GPIOS0, LOW);
-                  digitalWrite(GPIOS1, LOW);
-                  digitalWrite(GPIOS2, LOW);
+                  digitalWrite(GPIOS1, HIGH);
+                  digitalWrite(GPIOS2, HIGH);
                   digitalWrite(GPIOS3, LOW);
                   
-                  digitalWrite(GPIOSIG1, LOW);
+                  digitalWrite(GPIOSIG1, HIGH);
                   digitalWrite(GPIOSIG2, LOW);
                   digitalWrite(GPIOSIG3, LOW);
                   digitalWrite(GPIOSIG4, LOW);
@@ -670,11 +660,11 @@ void loop() {
                 case 'm':
                   digitalWrite(GPIOS0, LOW);
                   digitalWrite(GPIOS1, LOW);
-                  digitalWrite(GPIOS2, LOW);
+                  digitalWrite(GPIOS2, HIGH);
                   digitalWrite(GPIOS3, LOW);
                   
                   digitalWrite(GPIOSIG1, LOW);
-                  digitalWrite(GPIOSIG2, LOW);
+                  digitalWrite(GPIOSIG2, HIGH);
                   digitalWrite(GPIOSIG3, LOW);
                   digitalWrite(GPIOSIG4, LOW);
                   digitalWrite(GPIOSIG5, LOW);
@@ -683,13 +673,13 @@ void loop() {
                   break;
                 case 'b':
                   digitalWrite(GPIOS0, LOW);
-                  digitalWrite(GPIOS1, LOW);
+                  digitalWrite(GPIOS1, HIGH);
                   digitalWrite(GPIOS2, LOW);
                   digitalWrite(GPIOS3, LOW);
                   
                   digitalWrite(GPIOSIG1, LOW);
                   digitalWrite(GPIOSIG2, LOW);
-                  digitalWrite(GPIOSIG3, LOW);
+                  digitalWrite(GPIOSIG3, HIGH);
                   digitalWrite(GPIOSIG4, LOW);
                   digitalWrite(GPIOSIG5, LOW);
                   digitalWrite(GPIOSIG6, LOW);
@@ -728,18 +718,16 @@ void loop() {
           }
           break;
         case 'g':
-          
           switch (tolower(input3[0])) {
             case '6':
-              
               switch (tolower(input4[0])) {
                 case 'o':
-                  digitalWrite(GPIOS0, LOW);
-                  digitalWrite(GPIOS1, LOW);
-                  digitalWrite(GPIOS2, LOW);
+                  digitalWrite(GPIOS0, HIGH);
+                  digitalWrite(GPIOS1, HIGH);
+                  digitalWrite(GPIOS2, HIGH);
                   digitalWrite(GPIOS3, LOW);
                   
-                  digitalWrite(GPIOSIG1, LOW);
+                  digitalWrite(GPIOSIG1, HIGH);
                   digitalWrite(GPIOSIG2, LOW);
                   digitalWrite(GPIOSIG3, LOW);
                   digitalWrite(GPIOSIG4, LOW);
@@ -748,13 +736,13 @@ void loop() {
                   digitalWrite(GPIOSIG7, LOW);
                   break;
                 case 'm':
-                  digitalWrite(GPIOS0, LOW);
+                  digitalWrite(GPIOS0, HIGH);
                   digitalWrite(GPIOS1, LOW);
-                  digitalWrite(GPIOS2, LOW);
+                  digitalWrite(GPIOS2, HIGH);
                   digitalWrite(GPIOS3, LOW);
                   
                   digitalWrite(GPIOSIG1, LOW);
-                  digitalWrite(GPIOSIG2, LOW);
+                  digitalWrite(GPIOSIG2, HIGH);
                   digitalWrite(GPIOSIG3, LOW);
                   digitalWrite(GPIOSIG4, LOW);
                   digitalWrite(GPIOSIG5, LOW);
@@ -762,14 +750,14 @@ void loop() {
                   digitalWrite(GPIOSIG7, LOW);
                   break;
                 case 'b':
-                  digitalWrite(GPIOS0, LOW);
-                  digitalWrite(GPIOS1, LOW);
+                  digitalWrite(GPIOS0, HIGH);
+                  digitalWrite(GPIOS1, HIGH);
                   digitalWrite(GPIOS2, LOW);
                   digitalWrite(GPIOS3, LOW);
                   
                   digitalWrite(GPIOSIG1, LOW);
                   digitalWrite(GPIOSIG2, LOW);
-                  digitalWrite(GPIOSIG3, LOW);
+                  digitalWrite(GPIOSIG3, HIGH);
                   digitalWrite(GPIOSIG4, LOW);
                   digitalWrite(GPIOSIG5, LOW);
                   digitalWrite(GPIOSIG6, LOW);
@@ -777,13 +765,13 @@ void loop() {
                   break;
                 case 'w':
                   digitalWrite(GPIOS0, LOW);
-                  digitalWrite(GPIOS1, LOW);
+                  digitalWrite(GPIOS1, HIGH);
                   digitalWrite(GPIOS2, LOW);
-                  digitalWrite(GPIOS3, LOW);
+                  digitalWrite(GPIOS3, HIGH);
                   
                   digitalWrite(GPIOSIG1, LOW);
                   digitalWrite(GPIOSIG2, LOW);
-                  digitalWrite(GPIOSIG3, LOW);
+                  digitalWrite(GPIOSIG3, HIGH);
                   digitalWrite(GPIOSIG4, LOW);
                   digitalWrite(GPIOSIG5, LOW);
                   digitalWrite(GPIOSIG6, LOW);
@@ -806,15 +794,14 @@ void loop() {
               }
               break;
             case '7':
-              
               switch (tolower(input4[0])) {
                 case 'o':
                   digitalWrite(GPIOS0, LOW);
                   digitalWrite(GPIOS1, LOW);
                   digitalWrite(GPIOS2, LOW);
-                  digitalWrite(GPIOS3, LOW);
+                  digitalWrite(GPIOS3, HIGH);
                   
-                  digitalWrite(GPIOSIG1, LOW);
+                  digitalWrite(GPIOSIG1, HIGH);
                   digitalWrite(GPIOSIG2, LOW);
                   digitalWrite(GPIOSIG3, LOW);
                   digitalWrite(GPIOSIG4, LOW);
@@ -824,12 +811,12 @@ void loop() {
                   break;
                 case 'm':
                   digitalWrite(GPIOS0, LOW);
-                  digitalWrite(GPIOS1, LOW);
-                  digitalWrite(GPIOS2, LOW);
+                  digitalWrite(GPIOS1, HIGH);
+                  digitalWrite(GPIOS2, HIGH);
                   digitalWrite(GPIOS3, LOW);
                   
                   digitalWrite(GPIOSIG1, LOW);
-                  digitalWrite(GPIOSIG2, LOW);
+                  digitalWrite(GPIOSIG2, HIGH);
                   digitalWrite(GPIOSIG3, LOW);
                   digitalWrite(GPIOSIG4, LOW);
                   digitalWrite(GPIOSIG5, LOW);
@@ -839,12 +826,12 @@ void loop() {
                 case 'b':
                   digitalWrite(GPIOS0, LOW);
                   digitalWrite(GPIOS1, LOW);
-                  digitalWrite(GPIOS2, LOW);
+                  digitalWrite(GPIOS2, HIGH);
                   digitalWrite(GPIOS3, LOW);
                   
                   digitalWrite(GPIOSIG1, LOW);
                   digitalWrite(GPIOSIG2, LOW);
-                  digitalWrite(GPIOSIG3, LOW);
+                  digitalWrite(GPIOSIG3, HIGH);
                   digitalWrite(GPIOSIG4, LOW);
                   digitalWrite(GPIOSIG5, LOW);
                   digitalWrite(GPIOSIG6, LOW);
@@ -865,14 +852,14 @@ void loop() {
                   digitalWrite(GPIOSIG7, LOW);
                   break;
                 case 'f':
-                  digitalWrite(GPIOS0, LOW);
-                  digitalWrite(GPIOS1, LOW);
-                  digitalWrite(GPIOS2, LOW);
-                  digitalWrite(GPIOS3, LOW);
+                  digitalWrite(GPIOS0, HIGH);
+                  digitalWrite(GPIOS1, HIGH);
+                  digitalWrite(GPIOS2, HIGH);
+                  digitalWrite(GPIOS3, HIGH);
                   
                   digitalWrite(GPIOSIG1, LOW);
                   digitalWrite(GPIOSIG2, LOW);
-                  digitalWrite(GPIOSIG3, LOW);
+                  digitalWrite(GPIOSIG3, HIGH);
                   digitalWrite(GPIOSIG4, LOW);
                   digitalWrite(GPIOSIG5, LOW);
                   digitalWrite(GPIOSIG6, LOW);
@@ -881,15 +868,14 @@ void loop() {
               }
               break;
             case '8':
-              
               switch (tolower(input4[0])) {
                 case 'o':
-                  digitalWrite(GPIOS0, LOW);
+                  digitalWrite(GPIOS0, HIGH);
                   digitalWrite(GPIOS1, LOW);
                   digitalWrite(GPIOS2, LOW);
-                  digitalWrite(GPIOS3, LOW);
+                  digitalWrite(GPIOS3, HIGH);
                   
-                  digitalWrite(GPIOSIG1, LOW);
+                  digitalWrite(GPIOSIG1, HIGH);
                   digitalWrite(GPIOSIG2, LOW);
                   digitalWrite(GPIOSIG3, LOW);
                   digitalWrite(GPIOSIG4, LOW);
@@ -898,13 +884,13 @@ void loop() {
                   digitalWrite(GPIOSIG7, LOW);
                   break;
                 case 'm':
-                  digitalWrite(GPIOS0, LOW);
-                  digitalWrite(GPIOS1, LOW);
-                  digitalWrite(GPIOS2, LOW);
+                  digitalWrite(GPIOS0, HIGH);
+                  digitalWrite(GPIOS1, HIGH);
+                  digitalWrite(GPIOS2, HIGH);
                   digitalWrite(GPIOS3, LOW);
                   
                   digitalWrite(GPIOSIG1, LOW);
-                  digitalWrite(GPIOSIG2, LOW);
+                  digitalWrite(GPIOSIG2, HIGH);
                   digitalWrite(GPIOSIG3, LOW);
                   digitalWrite(GPIOSIG4, LOW);
                   digitalWrite(GPIOSIG5, LOW);
@@ -912,28 +898,28 @@ void loop() {
                   digitalWrite(GPIOSIG7, LOW);
                   break;
                 case 'b':
-                  digitalWrite(GPIOS0, LOW);
+                  digitalWrite(GPIOS0, HIGH);
                   digitalWrite(GPIOS1, LOW);
-                  digitalWrite(GPIOS2, LOW);
+                  digitalWrite(GPIOS2, HIGH);
                   digitalWrite(GPIOS3, LOW);
                   
                   digitalWrite(GPIOSIG1, LOW);
                   digitalWrite(GPIOSIG2, LOW);
-                  digitalWrite(GPIOSIG3, LOW);
+                  digitalWrite(GPIOSIG3, HIGH);
                   digitalWrite(GPIOSIG4, LOW);
                   digitalWrite(GPIOSIG5, LOW);
                   digitalWrite(GPIOSIG6, LOW);
                   digitalWrite(GPIOSIG7, LOW);
                   break;
                 case 'w':
-                  digitalWrite(GPIOS0, LOW);
-                  digitalWrite(GPIOS1, LOW);
+                  digitalWrite(GPIOS0, HIGH);
+                  digitalWrite(GPIOS1, HIGH);
                   digitalWrite(GPIOS2, LOW);
-                  digitalWrite(GPIOS3, LOW);
+                  digitalWrite(GPIOS3, HIGH);
                   
                   digitalWrite(GPIOSIG1, LOW);
                   digitalWrite(GPIOSIG2, LOW);
-                  digitalWrite(GPIOSIG3, LOW);
+                  digitalWrite(GPIOSIG3, HIGH);
                   digitalWrite(GPIOSIG4, LOW);
                   digitalWrite(GPIOSIG5, LOW);
                   digitalWrite(GPIOSIG6, LOW);
@@ -948,7 +934,7 @@ void loop() {
                   digitalWrite(GPIOSIG1, LOW);
                   digitalWrite(GPIOSIG2, LOW);
                   digitalWrite(GPIOSIG3, LOW);
-                  digitalWrite(GPIOSIG4, LOW);
+                  digitalWrite(GPIOSIG4, HIGH);
                   digitalWrite(GPIOSIG5, LOW);
                   digitalWrite(GPIOSIG6, LOW);
                   digitalWrite(GPIOSIG7, LOW);
@@ -956,15 +942,14 @@ void loop() {
               }
               break;
             case '9':
-              
               switch (tolower(input4[0])) {
                 case 'o':
                   digitalWrite(GPIOS0, LOW);
-                  digitalWrite(GPIOS1, LOW);
+                  digitalWrite(GPIOS1, HIGH);
                   digitalWrite(GPIOS2, LOW);
-                  digitalWrite(GPIOS3, LOW);
+                  digitalWrite(GPIOS3, HIGH);
                   
-                  digitalWrite(GPIOSIG1, LOW);
+                  digitalWrite(GPIOSIG1, HIGH);
                   digitalWrite(GPIOSIG2, LOW);
                   digitalWrite(GPIOSIG3, LOW);
                   digitalWrite(GPIOSIG4, LOW);
@@ -976,10 +961,10 @@ void loop() {
                   digitalWrite(GPIOS0, LOW);
                   digitalWrite(GPIOS1, LOW);
                   digitalWrite(GPIOS2, LOW);
-                  digitalWrite(GPIOS3, LOW);
+                  digitalWrite(GPIOS3, HIGH);
                   
                   digitalWrite(GPIOSIG1, LOW);
-                  digitalWrite(GPIOSIG2, LOW);
+                  digitalWrite(GPIOSIG2, HIGH);
                   digitalWrite(GPIOSIG3, LOW);
                   digitalWrite(GPIOSIG4, LOW);
                   digitalWrite(GPIOSIG5, LOW);
@@ -988,13 +973,13 @@ void loop() {
                   break;
                 case 'b':
                   digitalWrite(GPIOS0, LOW);
-                  digitalWrite(GPIOS1, LOW);
-                  digitalWrite(GPIOS2, LOW);
+                  digitalWrite(GPIOS1, HIGH);
+                  digitalWrite(GPIOS2, HIGH);
                   digitalWrite(GPIOS3, LOW);
                   
                   digitalWrite(GPIOSIG1, LOW);
                   digitalWrite(GPIOSIG2, LOW);
-                  digitalWrite(GPIOSIG3, LOW);
+                  digitalWrite(GPIOSIG3, HIGH);
                   digitalWrite(GPIOSIG4, LOW);
                   digitalWrite(GPIOSIG5, LOW);
                   digitalWrite(GPIOSIG6, LOW);
@@ -1031,15 +1016,14 @@ void loop() {
               }
               break;
             case '10':
-              
               switch (tolower(input4[0])) {
                 case 'o':
-                  digitalWrite(GPIOS0, LOW);
-                  digitalWrite(GPIOS1, LOW);
+                  digitalWrite(GPIOS0, HIGH);
+                  digitalWrite(GPIOS1, HIGH);
                   digitalWrite(GPIOS2, LOW);
-                  digitalWrite(GPIOS3, LOW);
+                  digitalWrite(GPIOS3, HIGH);
                   
-                  digitalWrite(GPIOSIG1, LOW);
+                  digitalWrite(GPIOSIG1, HIGH);
                   digitalWrite(GPIOSIG2, LOW);
                   digitalWrite(GPIOSIG3, LOW);
                   digitalWrite(GPIOSIG4, LOW);
@@ -1048,13 +1032,13 @@ void loop() {
                   digitalWrite(GPIOSIG7, LOW);
                   break;
                 case 'm':
-                  digitalWrite(GPIOS0, LOW);
+                  digitalWrite(GPIOS0, HIGH);
                   digitalWrite(GPIOS1, LOW);
                   digitalWrite(GPIOS2, LOW);
-                  digitalWrite(GPIOS3, LOW);
+                  digitalWrite(GPIOS3, HIGH);
                   
                   digitalWrite(GPIOSIG1, LOW);
-                  digitalWrite(GPIOSIG2, LOW);
+                  digitalWrite(GPIOSIG2, HIGH);
                   digitalWrite(GPIOSIG3, LOW);
                   digitalWrite(GPIOSIG4, LOW);
                   digitalWrite(GPIOSIG5, LOW);
@@ -1062,14 +1046,14 @@ void loop() {
                   digitalWrite(GPIOSIG7, LOW);
                   break;
                 case 'b':
-                  digitalWrite(GPIOS0, LOW);
-                  digitalWrite(GPIOS1, LOW);
-                  digitalWrite(GPIOS2, LOW);
+                  digitalWrite(GPIOS0, HIGH);
+                  digitalWrite(GPIOS1, HIGH);
+                  digitalWrite(GPIOS2, HIGH);
                   digitalWrite(GPIOS3, LOW);
                   
                   digitalWrite(GPIOSIG1, LOW);
                   digitalWrite(GPIOSIG2, LOW);
-                  digitalWrite(GPIOSIG3, LOW);
+                  digitalWrite(GPIOSIG3, HIGH);
                   digitalWrite(GPIOSIG4, LOW);
                   digitalWrite(GPIOSIG5, LOW);
                   digitalWrite(GPIOSIG6, LOW);
@@ -1078,12 +1062,12 @@ void loop() {
                 case 'w':
                   digitalWrite(GPIOS0, LOW);
                   digitalWrite(GPIOS1, LOW);
-                  digitalWrite(GPIOS2, LOW);
-                  digitalWrite(GPIOS3, LOW);
+                  digitalWrite(GPIOS2, HIGH);
+                  digitalWrite(GPIOS3, HIGH);
                   
                   digitalWrite(GPIOSIG1, LOW);
                   digitalWrite(GPIOSIG2, LOW);
-                  digitalWrite(GPIOSIG3, LOW);
+                  digitalWrite(GPIOSIG3, HIGH);
                   digitalWrite(GPIOSIG4, LOW);
                   digitalWrite(GPIOSIG5, LOW);
                   digitalWrite(GPIOSIG6, LOW);
@@ -1106,15 +1090,14 @@ void loop() {
               }
               break;
             case '11':
-              
               switch (tolower(input4[0])) {
                 case 'o':
                   digitalWrite(GPIOS0, LOW);
                   digitalWrite(GPIOS1, LOW);
-                  digitalWrite(GPIOS2, LOW);
-                  digitalWrite(GPIOS3, LOW);
+                  digitalWrite(GPIOS2, HIGH);
+                  digitalWrite(GPIOS3, HIGH);
                   
-                  digitalWrite(GPIOSIG1, LOW);
+                  digitalWrite(GPIOSIG1, HIGH);
                   digitalWrite(GPIOSIG2, LOW);
                   digitalWrite(GPIOSIG3, LOW);
                   digitalWrite(GPIOSIG4, LOW);
@@ -1124,12 +1107,12 @@ void loop() {
                   break;
                 case 'm':
                   digitalWrite(GPIOS0, LOW);
-                  digitalWrite(GPIOS1, LOW);
+                  digitalWrite(GPIOS1, HIGH);
                   digitalWrite(GPIOS2, LOW);
-                  digitalWrite(GPIOS3, LOW);
+                  digitalWrite(GPIOS3, HIGH);
                   
                   digitalWrite(GPIOSIG1, LOW);
-                  digitalWrite(GPIOSIG2, LOW);
+                  digitalWrite(GPIOSIG2, HIGH);
                   digitalWrite(GPIOSIG3, LOW);
                   digitalWrite(GPIOSIG4, LOW);
                   digitalWrite(GPIOSIG5, LOW);
@@ -1140,25 +1123,25 @@ void loop() {
                   digitalWrite(GPIOS0, LOW);
                   digitalWrite(GPIOS1, LOW);
                   digitalWrite(GPIOS2, LOW);
-                  digitalWrite(GPIOS3, LOW);
+                  digitalWrite(GPIOS3, HIGH);
                   
                   digitalWrite(GPIOSIG1, LOW);
                   digitalWrite(GPIOSIG2, LOW);
-                  digitalWrite(GPIOSIG3, LOW);
+                  digitalWrite(GPIOSIG3, HIGH);
                   digitalWrite(GPIOSIG4, LOW);
                   digitalWrite(GPIOSIG5, LOW);
                   digitalWrite(GPIOSIG6, LOW);
                   digitalWrite(GPIOSIG7, LOW);
                   break;
                 case 'w':
-                  digitalWrite(GPIOS0, LOW);
+                  digitalWrite(GPIOS0, HIGH);
                   digitalWrite(GPIOS1, LOW);
-                  digitalWrite(GPIOS2, LOW);
-                  digitalWrite(GPIOS3, LOW);
+                  digitalWrite(GPIOS2, HIGH);
+                  digitalWrite(GPIOS3, HIGH);
                   
                   digitalWrite(GPIOSIG1, LOW);
                   digitalWrite(GPIOSIG2, LOW);
-                  digitalWrite(GPIOSIG3, LOW);
+                  digitalWrite(GPIOSIG3, HIGH);
                   digitalWrite(GPIOSIG4, LOW);
                   digitalWrite(GPIOSIG5, LOW);
                   digitalWrite(GPIOSIG6, LOW);
@@ -1181,15 +1164,14 @@ void loop() {
               }
               break;
             case '12':
-              
               switch (tolower(input4[0])) {
                 case 'o':
-                  digitalWrite(GPIOS0, LOW);
+                  digitalWrite(GPIOS0, HIGH);
                   digitalWrite(GPIOS1, LOW);
-                  digitalWrite(GPIOS2, LOW);
-                  digitalWrite(GPIOS3, LOW);
+                  digitalWrite(GPIOS2, HIGH);
+                  digitalWrite(GPIOS3, HIGH);
                   
-                  digitalWrite(GPIOSIG1, LOW);
+                  digitalWrite(GPIOSIG1, HIGH);
                   digitalWrite(GPIOSIG2, LOW);
                   digitalWrite(GPIOSIG3, LOW);
                   digitalWrite(GPIOSIG4, LOW);
@@ -1198,13 +1180,13 @@ void loop() {
                   digitalWrite(GPIOSIG7, LOW);
                   break;
                 case 'm':
-                  digitalWrite(GPIOS0, LOW);
-                  digitalWrite(GPIOS1, LOW);
+                  digitalWrite(GPIOS0, HIGH);
+                  digitalWrite(GPIOS1, HIGH);
                   digitalWrite(GPIOS2, LOW);
-                  digitalWrite(GPIOS3, LOW);
+                  digitalWrite(GPIOS3, HIGH);
                   
                   digitalWrite(GPIOSIG1, LOW);
-                  digitalWrite(GPIOSIG2, LOW);
+                  digitalWrite(GPIOSIG2, HIGH);
                   digitalWrite(GPIOSIG3, LOW);
                   digitalWrite(GPIOSIG4, LOW);
                   digitalWrite(GPIOSIG5, LOW);
@@ -1212,14 +1194,14 @@ void loop() {
                   digitalWrite(GPIOSIG7, LOW);
                   break;
                 case 'b':
-                  digitalWrite(GPIOS0, LOW);
+                  digitalWrite(GPIOS0, HIGH);
                   digitalWrite(GPIOS1, LOW);
                   digitalWrite(GPIOS2, LOW);
-                  digitalWrite(GPIOS3, LOW);
+                  digitalWrite(GPIOS3, HIGH);
                   
                   digitalWrite(GPIOSIG1, LOW);
                   digitalWrite(GPIOSIG2, LOW);
-                  digitalWrite(GPIOSIG3, LOW);
+                  digitalWrite(GPIOSIG3, HIGH);
                   digitalWrite(GPIOSIG4, LOW);
                   digitalWrite(GPIOSIG5, LOW);
                   digitalWrite(GPIOSIG6, LOW);
@@ -1262,16 +1244,12 @@ void loop() {
           break;    
       }  
      
-      
       break;
-    case 'b':
-      
+    case 'b': 
       switch (tolower(input2[0])) {
         case 'b':
-          
           switch (tolower(input3[0])) {
             case '6':
-              
               switch (tolower(input4[0])) {
                 case 'o':
                   digitalWrite(GPIOS0, LOW);
@@ -1285,13 +1263,13 @@ void loop() {
                   digitalWrite(GPIOSIG4, LOW);
                   digitalWrite(GPIOSIG5, LOW);
                   digitalWrite(GPIOSIG6, LOW);
-                  digitalWrite(GPIOSIG7, LOW);
+                  digitalWrite(GPIOSIG7, HIGH);
                   break;
                 case 'm':
                   digitalWrite(GPIOS0, LOW);
-                  digitalWrite(GPIOS1, LOW);
-                  digitalWrite(GPIOS2, LOW);
-                  digitalWrite(GPIOS3, LOW);
+                  digitalWrite(GPIOS1, HIGH);
+                  digitalWrite(GPIOS2, HIGH);
+                  digitalWrite(GPIOS3, HIGH);
                   
                   digitalWrite(GPIOSIG1, LOW);
                   digitalWrite(GPIOSIG2, LOW);
@@ -1299,57 +1277,56 @@ void loop() {
                   digitalWrite(GPIOSIG4, LOW);
                   digitalWrite(GPIOSIG5, LOW);
                   digitalWrite(GPIOSIG6, LOW);
-                  digitalWrite(GPIOSIG7, LOW);
+                  digitalWrite(GPIOSIG7, HIGH);
                   break;
                 case 'b':
                   digitalWrite(GPIOS0, LOW);
                   digitalWrite(GPIOS1, LOW);
-                  digitalWrite(GPIOS2, LOW);
-                  digitalWrite(GPIOS3, LOW);
+                  digitalWrite(GPIOS2, HIGH);
+                  digitalWrite(GPIOS3, HIGH);
                   
                   digitalWrite(GPIOSIG1, LOW);
                   digitalWrite(GPIOSIG2, LOW);
                   digitalWrite(GPIOSIG3, LOW);
                   digitalWrite(GPIOSIG4, LOW);
                   digitalWrite(GPIOSIG5, LOW);
-                  digitalWrite(GPIOSIG6, LOW);
+                  digitalWrite(GPIOSIG6, HIGH);
                   digitalWrite(GPIOSIG7, LOW);
                   break;
                 case 'w':
                   digitalWrite(GPIOS0, LOW);
-                  digitalWrite(GPIOS1, LOW);
+                  digitalWrite(GPIOS1, HIGH);
                   digitalWrite(GPIOS2, LOW);
-                  digitalWrite(GPIOS3, LOW);
+                  digitalWrite(GPIOS3, HIGH);
                   
                   digitalWrite(GPIOSIG1, LOW);
                   digitalWrite(GPIOSIG2, LOW);
                   digitalWrite(GPIOSIG3, LOW);
                   digitalWrite(GPIOSIG4, LOW);
-                  digitalWrite(GPIOSIG5, LOW);
+                  digitalWrite(GPIOSIG5, HIGH);
                   digitalWrite(GPIOSIG6, LOW);
                   digitalWrite(GPIOSIG7, LOW);
                   break;
                 case 'f':
-                  digitalWrite(GPIOS0, LOW);
-                  digitalWrite(GPIOS1, LOW);
-                  digitalWrite(GPIOS2, LOW);
-                  digitalWrite(GPIOS3, LOW);
+                  digitalWrite(GPIOS0, HIGH);
+                  digitalWrite(GPIOS1, HIGH);
+                  digitalWrite(GPIOS2, HIGH);
+                  digitalWrite(GPIOS3, HIGH);
                   
                   digitalWrite(GPIOSIG1, LOW);
                   digitalWrite(GPIOSIG2, LOW);
                   digitalWrite(GPIOSIG3, LOW);
                   digitalWrite(GPIOSIG4, LOW);
-                  digitalWrite(GPIOSIG5, LOW);
+                  digitalWrite(GPIOSIG5, HIGH);
                   digitalWrite(GPIOSIG6, LOW);
                   digitalWrite(GPIOSIG7, LOW);
                   break;        
               }
               break;
             case '7':
-              
               switch (tolower(input4[0])) {
                 case 'o':
-                  digitalWrite(GPIOS0, LOW);
+                  digitalWrite(GPIOS0, HIGH);
                   digitalWrite(GPIOS1, LOW);
                   digitalWrite(GPIOS2, LOW);
                   digitalWrite(GPIOS3, LOW);
@@ -1360,13 +1337,13 @@ void loop() {
                   digitalWrite(GPIOSIG4, LOW);
                   digitalWrite(GPIOSIG5, LOW);
                   digitalWrite(GPIOSIG6, LOW);
-                  digitalWrite(GPIOSIG7, LOW);
+                  digitalWrite(GPIOSIG7, HIGH);
                   break;
                 case 'm':
-                  digitalWrite(GPIOS0, LOW);
-                  digitalWrite(GPIOS1, LOW);
-                  digitalWrite(GPIOS2, LOW);
-                  digitalWrite(GPIOS3, LOW);
+                  digitalWrite(GPIOS0, HIGH);
+                  digitalWrite(GPIOS1, HIGH);
+                  digitalWrite(GPIOS2, HIGH);
+                  digitalWrite(GPIOS3, HIGH);
                   
                   digitalWrite(GPIOSIG1, LOW);
                   digitalWrite(GPIOSIG2, LOW);
@@ -1374,46 +1351,46 @@ void loop() {
                   digitalWrite(GPIOSIG4, LOW);
                   digitalWrite(GPIOSIG5, LOW);
                   digitalWrite(GPIOSIG6, LOW);
-                  digitalWrite(GPIOSIG7, LOW);
+                  digitalWrite(GPIOSIG7, HIGH);
                   break;
                 case 'b':
-                  digitalWrite(GPIOS0, LOW);
+                  digitalWrite(GPIOS0, HIGH);
                   digitalWrite(GPIOS1, LOW);
-                  digitalWrite(GPIOS2, LOW);
-                  digitalWrite(GPIOS3, LOW);
+                  digitalWrite(GPIOS2, HIGH);
+                  digitalWrite(GPIOS3, HIGH);
                   
                   digitalWrite(GPIOSIG1, LOW);
                   digitalWrite(GPIOSIG2, LOW);
                   digitalWrite(GPIOSIG3, LOW);
                   digitalWrite(GPIOSIG4, LOW);
                   digitalWrite(GPIOSIG5, LOW);
-                  digitalWrite(GPIOSIG6, LOW);
+                  digitalWrite(GPIOSIG6, HIGH);
                   digitalWrite(GPIOSIG7, LOW);
                   break;
                 case 'w':
-                  digitalWrite(GPIOS0, LOW);
-                  digitalWrite(GPIOS1, LOW);
+                  digitalWrite(GPIOS0, HIGH);
+                  digitalWrite(GPIOS1, HIGH);
                   digitalWrite(GPIOS2, LOW);
-                  digitalWrite(GPIOS3, LOW);
+                  digitalWrite(GPIOS3, HIGH);
                   
                   digitalWrite(GPIOSIG1, LOW);
                   digitalWrite(GPIOSIG2, LOW);
                   digitalWrite(GPIOSIG3, LOW);
                   digitalWrite(GPIOSIG4, LOW);
-                  digitalWrite(GPIOSIG5, LOW);
+                  digitalWrite(GPIOSIG5, HIGH);
                   digitalWrite(GPIOSIG6, LOW);
                   digitalWrite(GPIOSIG7, LOW);
                   break;
                 case 'f':
                   digitalWrite(GPIOS0, LOW);
-                  digitalWrite(GPIOS1, LOW);
+                  digitalWrite(GPIOS1, HIGH);
                   digitalWrite(GPIOS2, LOW);
                   digitalWrite(GPIOS3, LOW);
                   
                   digitalWrite(GPIOSIG1, LOW);
                   digitalWrite(GPIOSIG2, LOW);
                   digitalWrite(GPIOSIG3, LOW);
-                  digitalWrite(GPIOSIG4, LOW);
+                  digitalWrite(GPIOSIG4, HIGH);
                   digitalWrite(GPIOSIG5, LOW);
                   digitalWrite(GPIOSIG6, LOW);
                   digitalWrite(GPIOSIG7, LOW);
@@ -1421,11 +1398,10 @@ void loop() {
               }
               break;
             case '8':
-              
               switch (tolower(input4[0])) {
                 case 'o':
                   digitalWrite(GPIOS0, LOW);
-                  digitalWrite(GPIOS1, LOW);
+                  digitalWrite(GPIOS1, HIGH);
                   digitalWrite(GPIOS2, LOW);
                   digitalWrite(GPIOS3, LOW);
                   
@@ -1435,7 +1411,7 @@ void loop() {
                   digitalWrite(GPIOSIG4, LOW);
                   digitalWrite(GPIOSIG5, LOW);
                   digitalWrite(GPIOSIG6, LOW);
-                  digitalWrite(GPIOSIG7, LOW);
+                  digitalWrite(GPIOSIG7, HIGH);
                   break;
                 case 'm':
                   digitalWrite(GPIOS0, LOW);
@@ -1448,34 +1424,34 @@ void loop() {
                   digitalWrite(GPIOSIG3, LOW);
                   digitalWrite(GPIOSIG4, LOW);
                   digitalWrite(GPIOSIG5, LOW);
-                  digitalWrite(GPIOSIG6, LOW);
+                  digitalWrite(GPIOSIG6, HIGH);
                   digitalWrite(GPIOSIG7, LOW);
                   break;
                 case 'b':
                   digitalWrite(GPIOS0, LOW);
-                  digitalWrite(GPIOS1, LOW);
-                  digitalWrite(GPIOS2, LOW);
-                  digitalWrite(GPIOS3, LOW);
+                  digitalWrite(GPIOS1, HIGH);
+                  digitalWrite(GPIOS2, HIGH);
+                  digitalWrite(GPIOS3, HIGH);
                   
                   digitalWrite(GPIOSIG1, LOW);
                   digitalWrite(GPIOSIG2, LOW);
                   digitalWrite(GPIOSIG3, LOW);
                   digitalWrite(GPIOSIG4, LOW);
                   digitalWrite(GPIOSIG5, LOW);
-                  digitalWrite(GPIOSIG6, LOW);
+                  digitalWrite(GPIOSIG6, HIGH);
                   digitalWrite(GPIOSIG7, LOW);
                   break;
                 case 'w':
                   digitalWrite(GPIOS0, LOW);
                   digitalWrite(GPIOS1, LOW);
-                  digitalWrite(GPIOS2, LOW);
-                  digitalWrite(GPIOS3, LOW);
+                  digitalWrite(GPIOS2, HIGH);
+                  digitalWrite(GPIOS3, HIGH);
                   
                   digitalWrite(GPIOSIG1, LOW);
                   digitalWrite(GPIOSIG2, LOW);
                   digitalWrite(GPIOSIG3, LOW);
                   digitalWrite(GPIOSIG4, LOW);
-                  digitalWrite(GPIOSIG5, LOW);
+                  digitalWrite(GPIOSIG5, HIGH);
                   digitalWrite(GPIOSIG6, LOW);
                   digitalWrite(GPIOSIG7, LOW);
                   break;
@@ -1496,11 +1472,10 @@ void loop() {
               }
               break;
             case '9':
-              
               switch (tolower(input4[0])) {
                 case 'o':
-                  digitalWrite(GPIOS0, LOW);
-                  digitalWrite(GPIOS1, LOW);
+                  digitalWrite(GPIOS0, HIGH);
+                  digitalWrite(GPIOS1, HIGH);
                   digitalWrite(GPIOS2, LOW);
                   digitalWrite(GPIOS3, LOW);
                   
@@ -1510,10 +1485,10 @@ void loop() {
                   digitalWrite(GPIOSIG4, LOW);
                   digitalWrite(GPIOSIG5, LOW);
                   digitalWrite(GPIOSIG6, LOW);
-                  digitalWrite(GPIOSIG7, LOW);
+                  digitalWrite(GPIOSIG7, HIGH);
                   break;
                 case 'm':
-                  digitalWrite(GPIOS0, LOW);
+                  digitalWrite(GPIOS0, HIGH);
                   digitalWrite(GPIOS1, LOW);
                   digitalWrite(GPIOS2, LOW);
                   digitalWrite(GPIOS3, LOW);
@@ -1523,21 +1498,21 @@ void loop() {
                   digitalWrite(GPIOSIG3, LOW);
                   digitalWrite(GPIOSIG4, LOW);
                   digitalWrite(GPIOSIG5, LOW);
-                  digitalWrite(GPIOSIG6, LOW);
+                  digitalWrite(GPIOSIG6, HIGH);
                   digitalWrite(GPIOSIG7, LOW);
                   break;
                 case 'b':
-                  digitalWrite(GPIOS0, LOW);
-                  digitalWrite(GPIOS1, LOW);
-                  digitalWrite(GPIOS2, LOW);
-                  digitalWrite(GPIOS3, LOW);
+                  digitalWrite(GPIOS0, HIGH);
+                  digitalWrite(GPIOS1, HIGH);
+                  digitalWrite(GPIOS2, HIGH);
+                  digitalWrite(GPIOS3, HIGH);
                   
                   digitalWrite(GPIOSIG1, LOW);
                   digitalWrite(GPIOSIG2, LOW);
                   digitalWrite(GPIOSIG3, LOW);
                   digitalWrite(GPIOSIG4, LOW);
                   digitalWrite(GPIOSIG5, LOW);
-                  digitalWrite(GPIOSIG6, LOW);
+                  digitalWrite(GPIOSIG6, HIGH);
                   digitalWrite(GPIOSIG7, LOW);
                   break;
                 case 'w':
@@ -1570,13 +1545,12 @@ void loop() {
                   break;
               }
               break;
-            case '10':
-              
+            case '10': 
               switch (tolower(input4[0])) {
                 case 'o':
                   digitalWrite(GPIOS0, LOW);
                   digitalWrite(GPIOS1, LOW);
-                  digitalWrite(GPIOS2, LOW);
+                  digitalWrite(GPIOS2, HIGH);
                   digitalWrite(GPIOS3, LOW);
                   
                   digitalWrite(GPIOSIG1, LOW);
@@ -1585,11 +1559,11 @@ void loop() {
                   digitalWrite(GPIOSIG4, LOW);
                   digitalWrite(GPIOSIG5, LOW);
                   digitalWrite(GPIOSIG6, LOW);
-                  digitalWrite(GPIOSIG7, LOW);
+                  digitalWrite(GPIOSIG7, HIGH);
                   break;
                 case 'm':
                   digitalWrite(GPIOS0, LOW);
-                  digitalWrite(GPIOS1, LOW);
+                  digitalWrite(GPIOS1, HIGH);
                   digitalWrite(GPIOS2, LOW);
                   digitalWrite(GPIOS3, LOW);
                   
@@ -1598,7 +1572,7 @@ void loop() {
                   digitalWrite(GPIOSIG3, LOW);
                   digitalWrite(GPIOSIG4, LOW);
                   digitalWrite(GPIOSIG5, LOW);
-                  digitalWrite(GPIOSIG6, LOW);
+                  digitalWrite(GPIOSIG6, HIGH);
                   digitalWrite(GPIOSIG7, LOW);
                   break;
                 case 'b':
@@ -1611,34 +1585,34 @@ void loop() {
                   digitalWrite(GPIOSIG2, LOW);
                   digitalWrite(GPIOSIG3, LOW);
                   digitalWrite(GPIOSIG4, LOW);
-                  digitalWrite(GPIOSIG5, LOW);
+                  digitalWrite(GPIOSIG5, HIGH);
                   digitalWrite(GPIOSIG6, LOW);
                   digitalWrite(GPIOSIG7, LOW);
                   break;
                 case 'w':
-                  digitalWrite(GPIOS0, LOW);
+                  digitalWrite(GPIOS0, HIGH);
                   digitalWrite(GPIOS1, LOW);
-                  digitalWrite(GPIOS2, LOW);
-                  digitalWrite(GPIOS3, LOW);
+                  digitalWrite(GPIOS2, HIGH);
+                  digitalWrite(GPIOS3, HIGH);
                   
                   digitalWrite(GPIOSIG1, LOW);
                   digitalWrite(GPIOSIG2, LOW);
                   digitalWrite(GPIOSIG3, LOW);
                   digitalWrite(GPIOSIG4, LOW);
-                  digitalWrite(GPIOSIG5, LOW);
+                  digitalWrite(GPIOSIG5, HIGH);
                   digitalWrite(GPIOSIG6, LOW);
                   digitalWrite(GPIOSIG7, LOW);
                   break;
                 case 'f':
                   digitalWrite(GPIOS0, LOW);
                   digitalWrite(GPIOS1, LOW);
-                  digitalWrite(GPIOS2, LOW);
+                  digitalWrite(GPIOS2, HIGH);
                   digitalWrite(GPIOS3, LOW);
                   
                   digitalWrite(GPIOSIG1, LOW);
                   digitalWrite(GPIOSIG2, LOW);
                   digitalWrite(GPIOSIG3, LOW);
-                  digitalWrite(GPIOSIG4, LOW);
+                  digitalWrite(GPIOSIG4, HIGH);
                   digitalWrite(GPIOSIG5, LOW);
                   digitalWrite(GPIOSIG6, LOW);
                   digitalWrite(GPIOSIG7, LOW);
@@ -1646,12 +1620,11 @@ void loop() {
               }
               break;
             case '11':
-              
               switch (tolower(input4[0])) {
                 case 'o':
-                  digitalWrite(GPIOS0, LOW);
+                  digitalWrite(GPIOS0, HIGH);
                   digitalWrite(GPIOS1, LOW);
-                  digitalWrite(GPIOS2, LOW);
+                  digitalWrite(GPIOS2, HIGH);
                   digitalWrite(GPIOS3, LOW);
                   
                   digitalWrite(GPIOSIG1, LOW);
@@ -1660,11 +1633,11 @@ void loop() {
                   digitalWrite(GPIOSIG4, LOW);
                   digitalWrite(GPIOSIG5, LOW);
                   digitalWrite(GPIOSIG6, LOW);
-                  digitalWrite(GPIOSIG7, LOW);
+                  digitalWrite(GPIOSIG7, HIGH);
                   break;
                 case 'm':
-                  digitalWrite(GPIOS0, LOW);
-                  digitalWrite(GPIOS1, LOW);
+                  digitalWrite(GPIOS0, HIGH);
+                  digitalWrite(GPIOS1, HIGH);
                   digitalWrite(GPIOS2, LOW);
                   digitalWrite(GPIOS3, LOW);
                   
@@ -1673,11 +1646,11 @@ void loop() {
                   digitalWrite(GPIOSIG3, LOW);
                   digitalWrite(GPIOSIG4, LOW);
                   digitalWrite(GPIOSIG5, LOW);
-                  digitalWrite(GPIOSIG6, LOW);
+                  digitalWrite(GPIOSIG6, HIGH);
                   digitalWrite(GPIOSIG7, LOW);
                   break;
                 case 'b':
-                  digitalWrite(GPIOS0, LOW);
+                  digitalWrite(GPIOS0, HIGH);
                   digitalWrite(GPIOS1, LOW);
                   digitalWrite(GPIOS2, LOW);
                   digitalWrite(GPIOS3, LOW);
@@ -1686,7 +1659,7 @@ void loop() {
                   digitalWrite(GPIOSIG2, LOW);
                   digitalWrite(GPIOSIG3, LOW);
                   digitalWrite(GPIOSIG4, LOW);
-                  digitalWrite(GPIOSIG5, LOW);
+                  digitalWrite(GPIOSIG5, HIGH);
                   digitalWrite(GPIOSIG6, LOW);
                   digitalWrite(GPIOSIG7, LOW);
                   break;
@@ -1721,12 +1694,11 @@ void loop() {
               }
               break;
             case '12':
-              
               switch (tolower(input4[0])) {
                 case 'o':
                   digitalWrite(GPIOS0, LOW);
-                  digitalWrite(GPIOS1, LOW);
-                  digitalWrite(GPIOS2, LOW);
+                  digitalWrite(GPIOS1, HIGH);
+                  digitalWrite(GPIOS2, HIGH);
                   digitalWrite(GPIOS3, LOW);
                   
                   digitalWrite(GPIOSIG1, LOW);
@@ -1735,12 +1707,12 @@ void loop() {
                   digitalWrite(GPIOSIG4, LOW);
                   digitalWrite(GPIOSIG5, LOW);
                   digitalWrite(GPIOSIG6, LOW);
-                  digitalWrite(GPIOSIG7, LOW);
+                  digitalWrite(GPIOSIG7, HIGH);
                   break;
                 case 'm':
                   digitalWrite(GPIOS0, LOW);
                   digitalWrite(GPIOS1, LOW);
-                  digitalWrite(GPIOS2, LOW);
+                  digitalWrite(GPIOS2, HIGH);
                   digitalWrite(GPIOS3, LOW);
                   
                   digitalWrite(GPIOSIG1, LOW);
@@ -1748,12 +1720,12 @@ void loop() {
                   digitalWrite(GPIOSIG3, LOW);
                   digitalWrite(GPIOSIG4, LOW);
                   digitalWrite(GPIOSIG5, LOW);
-                  digitalWrite(GPIOSIG6, LOW);
+                  digitalWrite(GPIOSIG6, HIGH);
                   digitalWrite(GPIOSIG7, LOW);
                   break;
                 case 'b':
                   digitalWrite(GPIOS0, LOW);
-                  digitalWrite(GPIOS1, LOW);
+                  digitalWrite(GPIOS1, HIGH);
                   digitalWrite(GPIOS2, LOW);
                   digitalWrite(GPIOS3, LOW);
                   
@@ -1761,21 +1733,21 @@ void loop() {
                   digitalWrite(GPIOSIG2, LOW);
                   digitalWrite(GPIOSIG3, LOW);
                   digitalWrite(GPIOSIG4, LOW);
-                  digitalWrite(GPIOSIG5, LOW);
+                  digitalWrite(GPIOSIG5, HIGH);
                   digitalWrite(GPIOSIG6, LOW);
                   digitalWrite(GPIOSIG7, LOW);
                   break;
                 case 'w':
                   digitalWrite(GPIOS0, LOW);
-                  digitalWrite(GPIOS1, LOW);
-                  digitalWrite(GPIOS2, LOW);
-                  digitalWrite(GPIOS3, LOW);
+                  digitalWrite(GPIOS1, HIGH);
+                  digitalWrite(GPIOS2, HIGH);
+                  digitalWrite(GPIOS3, HIGH);
                   
                   digitalWrite(GPIOSIG1, LOW);
                   digitalWrite(GPIOSIG2, LOW);
                   digitalWrite(GPIOSIG3, LOW);
                   digitalWrite(GPIOSIG4, LOW);
-                  digitalWrite(GPIOSIG5, LOW);
+                  digitalWrite(GPIOSIG5, HIGH);
                   digitalWrite(GPIOSIG6, LOW);
                   digitalWrite(GPIOSIG7, LOW);
                   break;
@@ -1798,15 +1770,13 @@ void loop() {
           }
           break;
         case 'g':
-          
           switch (tolower(input3[0])) {
             case '6':
-              
               switch (tolower(input4[0])) {
                 case 'o':
-                  digitalWrite(GPIOS0, LOW);
-                  digitalWrite(GPIOS1, LOW);
-                  digitalWrite(GPIOS2, LOW);
+                  digitalWrite(GPIOS0, HIGH);
+                  digitalWrite(GPIOS1, HIGH);
+                  digitalWrite(GPIOS2, HIGH);
                   digitalWrite(GPIOS3, LOW);
                   
                   digitalWrite(GPIOSIG1, LOW);
@@ -1815,12 +1785,12 @@ void loop() {
                   digitalWrite(GPIOSIG4, LOW);
                   digitalWrite(GPIOSIG5, LOW);
                   digitalWrite(GPIOSIG6, LOW);
-                  digitalWrite(GPIOSIG7, LOW);
+                  digitalWrite(GPIOSIG7, HIGH);
                   break;
                 case 'm':
-                  digitalWrite(GPIOS0, LOW);
+                  digitalWrite(GPIOS0, HIGH);
                   digitalWrite(GPIOS1, LOW);
-                  digitalWrite(GPIOS2, LOW);
+                  digitalWrite(GPIOS2, HIGH);
                   digitalWrite(GPIOS3, LOW);
                   
                   digitalWrite(GPIOSIG1, LOW);
@@ -1828,12 +1798,12 @@ void loop() {
                   digitalWrite(GPIOSIG3, LOW);
                   digitalWrite(GPIOSIG4, LOW);
                   digitalWrite(GPIOSIG5, LOW);
-                  digitalWrite(GPIOSIG6, LOW);
+                  digitalWrite(GPIOSIG6, HIGH);
                   digitalWrite(GPIOSIG7, LOW);
                   break;
                 case 'b':
-                  digitalWrite(GPIOS0, LOW);
-                  digitalWrite(GPIOS1, LOW);
+                  digitalWrite(GPIOS0, HIGH);
+                  digitalWrite(GPIOS1, HIGH);
                   digitalWrite(GPIOS2, LOW);
                   digitalWrite(GPIOS3, LOW);
                   
@@ -1841,48 +1811,47 @@ void loop() {
                   digitalWrite(GPIOSIG2, LOW);
                   digitalWrite(GPIOSIG3, LOW);
                   digitalWrite(GPIOSIG4, LOW);
-                  digitalWrite(GPIOSIG5, LOW);
+                  digitalWrite(GPIOSIG5, HIGH);
                   digitalWrite(GPIOSIG6, LOW);
                   digitalWrite(GPIOSIG7, LOW);
                   break;
                 case 'w':
                   digitalWrite(GPIOS0, LOW);
-                  digitalWrite(GPIOS1, LOW);
+                  digitalWrite(GPIOS1, HIGH);
                   digitalWrite(GPIOS2, LOW);
-                  digitalWrite(GPIOS3, LOW);
+                  digitalWrite(GPIOS3, HIGH);
                   
                   digitalWrite(GPIOSIG1, LOW);
                   digitalWrite(GPIOSIG2, LOW);
                   digitalWrite(GPIOSIG3, LOW);
                   digitalWrite(GPIOSIG4, LOW);
-                  digitalWrite(GPIOSIG5, LOW);
+                  digitalWrite(GPIOSIG5, HIGH);
                   digitalWrite(GPIOSIG6, LOW);
                   digitalWrite(GPIOSIG7, LOW);
                   break;
                 case 'f':
-                  digitalWrite(GPIOS0, LOW);
-                  digitalWrite(GPIOS1, LOW);
-                  digitalWrite(GPIOS2, LOW);
-                  digitalWrite(GPIOS3, LOW);
+                  digitalWrite(GPIOS0, HIGH);
+                  digitalWrite(GPIOS1, HIGH);
+                  digitalWrite(GPIOS2, HIGH);
+                  digitalWrite(GPIOS3, HIGH);
                   
                   digitalWrite(GPIOSIG1, LOW);
                   digitalWrite(GPIOSIG2, LOW);
                   digitalWrite(GPIOSIG3, LOW);
                   digitalWrite(GPIOSIG4, LOW);
-                  digitalWrite(GPIOSIG5, LOW);
+                  digitalWrite(GPIOSIG5, HIGH);
                   digitalWrite(GPIOSIG6, LOW);
                   digitalWrite(GPIOSIG7, LOW);
                   break;        
               }
               break;
             case '7':
-              
               switch (tolower(input4[0])) {
                 case 'o':
                   digitalWrite(GPIOS0, LOW);
                   digitalWrite(GPIOS1, LOW);
                   digitalWrite(GPIOS2, LOW);
-                  digitalWrite(GPIOS3, LOW);
+                  digitalWrite(GPIOS3, HIGH);
                   
                   digitalWrite(GPIOSIG1, LOW);
                   digitalWrite(GPIOSIG2, LOW);
@@ -1890,12 +1859,12 @@ void loop() {
                   digitalWrite(GPIOSIG4, LOW);
                   digitalWrite(GPIOSIG5, LOW);
                   digitalWrite(GPIOSIG6, LOW);
-                  digitalWrite(GPIOSIG7, LOW);
+                  digitalWrite(GPIOSIG7, HIGH);
                   break;
                 case 'm':
                   digitalWrite(GPIOS0, LOW);
-                  digitalWrite(GPIOS1, LOW);
-                  digitalWrite(GPIOS2, LOW);
+                  digitalWrite(GPIOS1, HIGH);
+                  digitalWrite(GPIOS2, HIGH);
                   digitalWrite(GPIOS3, LOW);
                   
                   digitalWrite(GPIOSIG1, LOW);
@@ -1903,47 +1872,47 @@ void loop() {
                   digitalWrite(GPIOSIG3, LOW);
                   digitalWrite(GPIOSIG4, LOW);
                   digitalWrite(GPIOSIG5, LOW);
-                  digitalWrite(GPIOSIG6, LOW);
+                  digitalWrite(GPIOSIG6, HIGH);
                   digitalWrite(GPIOSIG7, LOW);
                   break;
                 case 'b':
                   digitalWrite(GPIOS0, LOW);
                   digitalWrite(GPIOS1, LOW);
-                  digitalWrite(GPIOS2, LOW);
+                  digitalWrite(GPIOS2, HIGH);
                   digitalWrite(GPIOS3, LOW);
                   
                   digitalWrite(GPIOSIG1, LOW);
                   digitalWrite(GPIOSIG2, LOW);
                   digitalWrite(GPIOSIG3, LOW);
                   digitalWrite(GPIOSIG4, LOW);
-                  digitalWrite(GPIOSIG5, LOW);
+                  digitalWrite(GPIOSIG5, HIGH);
                   digitalWrite(GPIOSIG6, LOW);
                   digitalWrite(GPIOSIG7, LOW);
                   break;
                 case 'w':
-                  digitalWrite(GPIOS0, LOW);
-                  digitalWrite(GPIOS1, LOW);
+                  digitalWrite(GPIOS0, HIGH);
+                  digitalWrite(GPIOS1, HIGH);
                   digitalWrite(GPIOS2, LOW);
-                  digitalWrite(GPIOS3, LOW);
+                  digitalWrite(GPIOS3, HIGH);
                   
                   digitalWrite(GPIOSIG1, LOW);
                   digitalWrite(GPIOSIG2, LOW);
                   digitalWrite(GPIOSIG3, LOW);
                   digitalWrite(GPIOSIG4, LOW);
-                  digitalWrite(GPIOSIG5, LOW);
+                  digitalWrite(GPIOSIG5, HIGH);
                   digitalWrite(GPIOSIG6, LOW);
                   digitalWrite(GPIOSIG7, LOW);
                   break;
                 case 'f':
                   digitalWrite(GPIOS0, LOW);
-                  digitalWrite(GPIOS1, LOW);
+                  digitalWrite(GPIOS1, HIGH);
                   digitalWrite(GPIOS2, LOW);
                   digitalWrite(GPIOS3, LOW);
                   
                   digitalWrite(GPIOSIG1, LOW);
                   digitalWrite(GPIOSIG2, LOW);
                   digitalWrite(GPIOSIG3, LOW);
-                  digitalWrite(GPIOSIG4, LOW);
+                  digitalWrite(GPIOSIG4, HIGH);
                   digitalWrite(GPIOSIG5, LOW);
                   digitalWrite(GPIOSIG6, LOW);
                   digitalWrite(GPIOSIG7, LOW);
@@ -1951,13 +1920,12 @@ void loop() {
               }
               break;
             case '8':
-              
               switch (tolower(input4[0])) {
                 case 'o':
-                  digitalWrite(GPIOS0, LOW);
+                  digitalWrite(GPIOS0, HIGH);
                   digitalWrite(GPIOS1, LOW);
                   digitalWrite(GPIOS2, LOW);
-                  digitalWrite(GPIOS3, LOW);
+                  digitalWrite(GPIOS3, HIGH);
                   
                   digitalWrite(GPIOSIG1, LOW);
                   digitalWrite(GPIOSIG2, LOW);
@@ -1965,12 +1933,12 @@ void loop() {
                   digitalWrite(GPIOSIG4, LOW);
                   digitalWrite(GPIOSIG5, LOW);
                   digitalWrite(GPIOSIG6, LOW);
-                  digitalWrite(GPIOSIG7, LOW);
+                  digitalWrite(GPIOSIG7, HIGH);
                   break;
                 case 'm':
-                  digitalWrite(GPIOS0, LOW);
-                  digitalWrite(GPIOS1, LOW);
-                  digitalWrite(GPIOS2, LOW);
+                  digitalWrite(GPIOS0, HIGH);
+                  digitalWrite(GPIOS1, HIGH);
+                  digitalWrite(GPIOS2, HIGH);
                   digitalWrite(GPIOS3, LOW);
                   
                   digitalWrite(GPIOSIG1, LOW);
@@ -1978,47 +1946,47 @@ void loop() {
                   digitalWrite(GPIOSIG3, LOW);
                   digitalWrite(GPIOSIG4, LOW);
                   digitalWrite(GPIOSIG5, LOW);
-                  digitalWrite(GPIOSIG6, LOW);
+                  digitalWrite(GPIOSIG6, HIGH);
                   digitalWrite(GPIOSIG7, LOW);
                   break;
                 case 'b':
-                  digitalWrite(GPIOS0, LOW);
+                  digitalWrite(GPIOS0, HIGH);
                   digitalWrite(GPIOS1, LOW);
-                  digitalWrite(GPIOS2, LOW);
+                  digitalWrite(GPIOS2, HIGH);
                   digitalWrite(GPIOS3, LOW);
                   
                   digitalWrite(GPIOSIG1, LOW);
                   digitalWrite(GPIOSIG2, LOW);
                   digitalWrite(GPIOSIG3, LOW);
                   digitalWrite(GPIOSIG4, LOW);
-                  digitalWrite(GPIOSIG5, LOW);
+                  digitalWrite(GPIOSIG5, HIGH);
                   digitalWrite(GPIOSIG6, LOW);
                   digitalWrite(GPIOSIG7, LOW);
                   break;
                 case 'w':
                   digitalWrite(GPIOS0, LOW);
                   digitalWrite(GPIOS1, LOW);
-                  digitalWrite(GPIOS2, LOW);
-                  digitalWrite(GPIOS3, LOW);
+                  digitalWrite(GPIOS2, HIGH);
+                  digitalWrite(GPIOS3, HIGH);
                   
                   digitalWrite(GPIOSIG1, LOW);
                   digitalWrite(GPIOSIG2, LOW);
                   digitalWrite(GPIOSIG3, LOW);
                   digitalWrite(GPIOSIG4, LOW);
-                  digitalWrite(GPIOSIG5, LOW);
+                  digitalWrite(GPIOSIG5, HIGH);
                   digitalWrite(GPIOSIG6, LOW);
                   digitalWrite(GPIOSIG7, LOW);
                   break;
                 case 'f':
-                  digitalWrite(GPIOS0, LOW);
-                  digitalWrite(GPIOS1, LOW);
+                  digitalWrite(GPIOS0, HIGH);
+                  digitalWrite(GPIOS1, HIGH);
                   digitalWrite(GPIOS2, LOW);
                   digitalWrite(GPIOS3, LOW);
                   
                   digitalWrite(GPIOSIG1, LOW);
                   digitalWrite(GPIOSIG2, LOW);
                   digitalWrite(GPIOSIG3, LOW);
-                  digitalWrite(GPIOSIG4, LOW);
+                  digitalWrite(GPIOSIG4, HIGH);
                   digitalWrite(GPIOSIG5, LOW);
                   digitalWrite(GPIOSIG6, LOW);
                   digitalWrite(GPIOSIG7, LOW);
@@ -2026,13 +1994,12 @@ void loop() {
               }
               break;
             case '9':
-              
               switch (tolower(input4[0])) {
                 case 'o':
                   digitalWrite(GPIOS0, LOW);
-                  digitalWrite(GPIOS1, LOW);
+                  digitalWrite(GPIOS1, HIGH);
                   digitalWrite(GPIOS2, LOW);
-                  digitalWrite(GPIOS3, LOW);
+                  digitalWrite(GPIOS3, HIGH);
                   
                   digitalWrite(GPIOSIG1, LOW);
                   digitalWrite(GPIOSIG2, LOW);
@@ -2040,33 +2007,33 @@ void loop() {
                   digitalWrite(GPIOSIG4, LOW);
                   digitalWrite(GPIOSIG5, LOW);
                   digitalWrite(GPIOSIG6, LOW);
-                  digitalWrite(GPIOSIG7, LOW);
+                  digitalWrite(GPIOSIG7, HIGH);
                   break;
                 case 'm':
                   digitalWrite(GPIOS0, LOW);
                   digitalWrite(GPIOS1, LOW);
                   digitalWrite(GPIOS2, LOW);
-                  digitalWrite(GPIOS3, LOW);
+                  digitalWrite(GPIOS3, HIGH);
                   
                   digitalWrite(GPIOSIG1, LOW);
                   digitalWrite(GPIOSIG2, LOW);
                   digitalWrite(GPIOSIG3, LOW);
                   digitalWrite(GPIOSIG4, LOW);
                   digitalWrite(GPIOSIG5, LOW);
-                  digitalWrite(GPIOSIG6, LOW);
+                  digitalWrite(GPIOSIG6, HIGH);
                   digitalWrite(GPIOSIG7, LOW);
                   break;
                 case 'b':
                   digitalWrite(GPIOS0, LOW);
-                  digitalWrite(GPIOS1, LOW);
-                  digitalWrite(GPIOS2, LOW);
+                  digitalWrite(GPIOS1, HIGH);
+                  digitalWrite(GPIOS2, HIGH);
                   digitalWrite(GPIOS3, LOW);
                   
                   digitalWrite(GPIOSIG1, LOW);
                   digitalWrite(GPIOSIG2, LOW);
                   digitalWrite(GPIOSIG3, LOW);
                   digitalWrite(GPIOSIG4, LOW);
-                  digitalWrite(GPIOSIG5, LOW);
+                  digitalWrite(GPIOSIG5, HIGH);
                   digitalWrite(GPIOSIG6, LOW);
                   digitalWrite(GPIOSIG7, LOW);
                   break;
@@ -2101,13 +2068,12 @@ void loop() {
               }
               break;
             case '10':
-              
               switch (tolower(input4[0])) {
                 case 'o':
-                  digitalWrite(GPIOS0, LOW);
-                  digitalWrite(GPIOS1, LOW);
+                  digitalWrite(GPIOS0, HIGH);
+                  digitalWrite(GPIOS1, HIGH);
                   digitalWrite(GPIOS2, LOW);
-                  digitalWrite(GPIOS3, LOW);
+                  digitalWrite(GPIOS3, HIGH);
                   
                   digitalWrite(GPIOSIG1, LOW);
                   digitalWrite(GPIOSIG2, LOW);
@@ -2115,33 +2081,33 @@ void loop() {
                   digitalWrite(GPIOSIG4, LOW);
                   digitalWrite(GPIOSIG5, LOW);
                   digitalWrite(GPIOSIG6, LOW);
-                  digitalWrite(GPIOSIG7, LOW);
+                  digitalWrite(GPIOSIG7, HIGH);
                   break;
                 case 'm':
-                  digitalWrite(GPIOS0, LOW);
+                  digitalWrite(GPIOS0, HIGH);
                   digitalWrite(GPIOS1, LOW);
                   digitalWrite(GPIOS2, LOW);
-                  digitalWrite(GPIOS3, LOW);
+                  digitalWrite(GPIOS3, HIGH);
                   
                   digitalWrite(GPIOSIG1, LOW);
                   digitalWrite(GPIOSIG2, LOW);
                   digitalWrite(GPIOSIG3, LOW);
                   digitalWrite(GPIOSIG4, LOW);
                   digitalWrite(GPIOSIG5, LOW);
-                  digitalWrite(GPIOSIG6, LOW);
+                  digitalWrite(GPIOSIG6, HIGH);
                   digitalWrite(GPIOSIG7, LOW);
                   break;
                 case 'b':
-                  digitalWrite(GPIOS0, LOW);
-                  digitalWrite(GPIOS1, LOW);
-                  digitalWrite(GPIOS2, LOW);
+                  digitalWrite(GPIOS0, HIGH);
+                  digitalWrite(GPIOS1, HIGH);
+                  digitalWrite(GPIOS2, HIGH);
                   digitalWrite(GPIOS3, LOW);
                   
                   digitalWrite(GPIOSIG1, LOW);
                   digitalWrite(GPIOSIG2, LOW);
                   digitalWrite(GPIOSIG3, LOW);
                   digitalWrite(GPIOSIG4, LOW);
-                  digitalWrite(GPIOSIG5, LOW);
+                  digitalWrite(GPIOSIG5, HIGH);
                   digitalWrite(GPIOSIG6, LOW);
                   digitalWrite(GPIOSIG7, LOW);
                   break;
@@ -2176,13 +2142,12 @@ void loop() {
               }
               break;
             case '11':
-              
               switch (tolower(input4[0])) {
                 case 'o':
                   digitalWrite(GPIOS0, LOW);
                   digitalWrite(GPIOS1, LOW);
-                  digitalWrite(GPIOS2, LOW);
-                  digitalWrite(GPIOS3, LOW);
+                  digitalWrite(GPIOS2, HIGH);
+                  digitalWrite(GPIOS3, HIGH);
                   
                   digitalWrite(GPIOSIG1, LOW);
                   digitalWrite(GPIOSIG2, LOW);
@@ -2190,33 +2155,33 @@ void loop() {
                   digitalWrite(GPIOSIG4, LOW);
                   digitalWrite(GPIOSIG5, LOW);
                   digitalWrite(GPIOSIG6, LOW);
-                  digitalWrite(GPIOSIG7, LOW);
+                  digitalWrite(GPIOSIG7, HIGH);
                   break;
                 case 'm':
                   digitalWrite(GPIOS0, LOW);
-                  digitalWrite(GPIOS1, LOW);
+                  digitalWrite(GPIOS1, HIGH);
                   digitalWrite(GPIOS2, LOW);
-                  digitalWrite(GPIOS3, LOW);
+                  digitalWrite(GPIOS3, HIGH);
                   
                   digitalWrite(GPIOSIG1, LOW);
                   digitalWrite(GPIOSIG2, LOW);
                   digitalWrite(GPIOSIG3, LOW);
                   digitalWrite(GPIOSIG4, LOW);
                   digitalWrite(GPIOSIG5, LOW);
-                  digitalWrite(GPIOSIG6, LOW);
+                  digitalWrite(GPIOSIG6, HIGH);
                   digitalWrite(GPIOSIG7, LOW);
                   break;
                 case 'b':
                   digitalWrite(GPIOS0, LOW);
                   digitalWrite(GPIOS1, LOW);
                   digitalWrite(GPIOS2, LOW);
-                  digitalWrite(GPIOS3, LOW);
+                  digitalWrite(GPIOS3, HIGH);
                   
                   digitalWrite(GPIOSIG1, LOW);
                   digitalWrite(GPIOSIG2, LOW);
                   digitalWrite(GPIOSIG3, LOW);
                   digitalWrite(GPIOSIG4, LOW);
-                  digitalWrite(GPIOSIG5, LOW);
+                  digitalWrite(GPIOSIG5, HIGH);
                   digitalWrite(GPIOSIG6, LOW);
                   digitalWrite(GPIOSIG7, LOW);
                   break;
@@ -2251,13 +2216,12 @@ void loop() {
               }
               break;
             case '12':
-              
               switch (tolower(input4[0])) {
                 case 'o':
-                  digitalWrite(GPIOS0, LOW);
+                  digitalWrite(GPIOS0, HIGH);
                   digitalWrite(GPIOS1, LOW);
-                  digitalWrite(GPIOS2, LOW);
-                  digitalWrite(GPIOS3, LOW);
+                  digitalWrite(GPIOS2, HIGH);
+                  digitalWrite(GPIOS3, HIGH);
                   
                   digitalWrite(GPIOSIG1, LOW);
                   digitalWrite(GPIOSIG2, LOW);
@@ -2265,33 +2229,33 @@ void loop() {
                   digitalWrite(GPIOSIG4, LOW);
                   digitalWrite(GPIOSIG5, LOW);
                   digitalWrite(GPIOSIG6, LOW);
-                  digitalWrite(GPIOSIG7, LOW);
+                  digitalWrite(GPIOSIG7, HIGH);
                   break;
                 case 'm':
-                  digitalWrite(GPIOS0, LOW);
-                  digitalWrite(GPIOS1, LOW);
+                  digitalWrite(GPIOS0, HIGH);
+                  digitalWrite(GPIOS1, HIGH);
                   digitalWrite(GPIOS2, LOW);
-                  digitalWrite(GPIOS3, LOW);
+                  digitalWrite(GPIOS3, HIGH);
                   
                   digitalWrite(GPIOSIG1, LOW);
                   digitalWrite(GPIOSIG2, LOW);
                   digitalWrite(GPIOSIG3, LOW);
                   digitalWrite(GPIOSIG4, LOW);
                   digitalWrite(GPIOSIG5, LOW);
-                  digitalWrite(GPIOSIG6, LOW);
+                  digitalWrite(GPIOSIG6, HIGH);
                   digitalWrite(GPIOSIG7, LOW);
                   break;
                 case 'b':
-                  digitalWrite(GPIOS0, LOW);
+                  digitalWrite(GPIOS0, HIGH);
                   digitalWrite(GPIOS1, LOW);
                   digitalWrite(GPIOS2, LOW);
-                  digitalWrite(GPIOS3, LOW);
+                  digitalWrite(GPIOS3, HIGH);
                   
                   digitalWrite(GPIOSIG1, LOW);
                   digitalWrite(GPIOSIG2, LOW);
                   digitalWrite(GPIOSIG3, LOW);
                   digitalWrite(GPIOSIG4, LOW);
-                  digitalWrite(GPIOSIG5, LOW);
+                  digitalWrite(GPIOSIG5, HIGH);
                   digitalWrite(GPIOSIG6, LOW);
                   digitalWrite(GPIOSIG7, LOW);
                   break;
@@ -2310,15 +2274,15 @@ void loop() {
                   digitalWrite(GPIOSIG7, LOW);
                   break;
                 case 'f':
-                  digitalWrite(GPIOS0, LOW);
+                  digitalWrite(GPIOS0, HIGH);
                   digitalWrite(GPIOS1, LOW);
-                  digitalWrite(GPIOS2, LOW);
+                  digitalWrite(GPIOS2, HIGH);
                   digitalWrite(GPIOS3, LOW);
                   
                   digitalWrite(GPIOSIG1, LOW);
                   digitalWrite(GPIOSIG2, LOW);
                   digitalWrite(GPIOSIG3, LOW);
-                  digitalWrite(GPIOSIG4, LOW);
+                  digitalWrite(GPIOSIG4, HIGH);
                   digitalWrite(GPIOSIG5, LOW);
                   digitalWrite(GPIOSIG6, LOW);
                   digitalWrite(GPIOSIG7, LOW);
