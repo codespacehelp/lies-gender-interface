@@ -4,7 +4,9 @@ class Peep {
   constructor(config) {
     this.x = config.x;
     this.y = config.y;
-    /*  this.label = config.label;*/
+    this.label = config.label;
+    this.index = config.index;
+    this.command = config.command;
     this.active = !!config.active;
     this.sim = config.sim;
     // Om math.random - voor het blinken - te vertragen
@@ -41,7 +43,9 @@ class Peep {
     this.faceX = (this.sim.mouseX - this.x) / 5;
     this.faceY = (this.sim.mouseY - this.y) / 5;
 
-    const faceMag = Math.sqrt(this.faceX * this.faceX + this.faceY * this.faceY);
+    const faceMag = Math.sqrt(
+      this.faceX * this.faceX + this.faceY * this.faceY
+    );
     const maxDistance = 5;
 
     if (faceMag > maxDistance) {
@@ -64,25 +68,36 @@ class Peep {
     // Check if enough time has passed for randomization
     //if (math.random() <.95)
     if (!this.blinking) {
-        ctx.drawImage(IMAGES.eyes, this.x - 25 + this.faceX, this.y - 25 + this.faceY, 50, 50);
-      } else {
-        ctx.drawImage(IMAGES.blink, this.x - 25 + this.faceX, this.y - 25 + this.faceY, 50, 50);
-      }
-    
+      ctx.drawImage(
+        IMAGES.eyes,
+        this.x - 25 + this.faceX,
+        this.y - 25 + this.faceY,
+        50,
+        50
+      );
+    } else {
+      ctx.drawImage(
+        IMAGES.blink,
+        this.x - 25 + this.faceX,
+        this.y - 25 + this.faceY,
+        50,
+        50
+      );
+    }
+
     /*  ctx.fillText(this.label, this.x, this.y + 15);*/
     ctx.textAlign = "center";
   }
 
   activate() {
     this.active = true;
-  
+
     // Deactivate the peep after a short duration
     setTimeout(() => {
       this.active = false;
     }, 500); // Adjust the duration (in milliseconds) as needed
   }
 }
-
 
 function getRandomDelay(maxDelay) {
   return Math.random() * maxDelay;

@@ -53,18 +53,27 @@ function changeText() {
   var buttonElement = document.getElementById("button1");
   var textElements = document.getElementsByClassName("Text1");
   if (buttonElement.textContent == "Let me start over!") {
-		location.reload();
-	}
+    location.reload();
+  }
 
   for (var i = 0; i < textElements.length; i++) {
-    if (textElements[i].innerHTML === "The data vase shows the results - or the data base (got it?!) - of a linguistic intervention. <br> Vervecken looked into why stereotypically male jobs are so often seen as approriate for only, <br> or at least mostly, men. <br><br> He figured out that if one addresses a child with both the male and female job title, <br> instead of only the male job title, <br> this child will find men and women more equally capable to do the job.<br><br>") {
-      textElements[i].innerHTML = "The paper legend shows you how to read the vase. <br> HOWEVER, With me as your guide, you can also search for specific information on the vase itself! <br><br> Make sentences by connecting one person from each column with the next.<br> The lights show you where to look. What will you find? Excitement!<br><br>"; // Update the text
+    if (
+      textElements[i].innerHTML ===
+      "The data vase shows the results - or the data base (got it?!) - of a linguistic intervention. <br> Vervecken looked into why stereotypically male jobs are so often seen as approriate for only, <br> or at least mostly, men. <br><br> He figured out that if one addresses a child with both the male and female job title, <br> instead of only the male job title, <br> this child will find men and women more equally capable to do the job.<br><br>"
+    ) {
+      textElements[i].innerHTML =
+        "The paper legend shows you how to read the vase. <br> HOWEVER, With me as your guide, you can also search for specific information on the vase itself! <br><br> Make sentences by connecting one person from each column with the next.<br> The lights show you where to look. What will you find? Excitement!<br><br>"; // Update the text
       buttonElement.textContent = "Let me start over!"; // Update the button text
-    } else if (textElements[i].innerHTML === "The paper legend shows you how to read the vase. <br> HOWEVER, With me as your guide, you can also search for specific information on the vase itself! <br><br> Make sentences by connecting one person from each column with the next.<br> The lights show you where to look. What will you find? Excitement!<br><br>") {
-      textElements[i].innerHTML = "Have you ever heard of the butterfly effect? <br> Or how small changes can lead to great progress.<br> Well, get ready, because you're about to learn something! <br><br> Researcher Dries Vervecken went to investigate and discovered that <b>gender-equal job descriptions</b> in gendered langauges (such as Dutch, duh) have a major effect on children's career interests. <br><br>";
+    } else if (
+      textElements[i].innerHTML ===
+      "The paper legend shows you how to read the vase. <br> HOWEVER, With me as your guide, you can also search for specific information on the vase itself! <br><br> Make sentences by connecting one person from each column with the next.<br> The lights show you where to look. What will you find? Excitement!<br><br>"
+    ) {
+      textElements[i].innerHTML =
+        "Have you ever heard of the butterfly effect? <br> Or how small changes can lead to great progress.<br> Well, get ready, because you're about to learn something! <br><br> Researcher Dries Vervecken went to investigate and discovered that <b>gender-equal job descriptions</b> in gendered langauges (such as Dutch, duh) have a major effect on children's career interests. <br><br>";
       buttonElement.textContent = "No way. Prove it!"; // Revert back to the original button text
     } else {
-      textElements[i].innerHTML = "The data vase shows the results - or the data base (got it?!) - of a linguistic intervention. <br> Vervecken looked into why stereotypically male jobs are so often seen as approriate for only, <br> or at least mostly, men. <br><br> He figured out that if one addresses a child with both the male and female job title, <br> instead of only the male job title, <br> this child will find men and women more equally capable to do the job.<br><br>"; // Revert back to the original text
+      textElements[i].innerHTML =
+        "The data vase shows the results - or the data base (got it?!) - of a linguistic intervention. <br> Vervecken looked into why stereotypically male jobs are so often seen as approriate for only, <br> or at least mostly, men. <br><br> He figured out that if one addresses a child with both the male and female job title, <br> instead of only the male job title, <br> this child will find men and women more equally capable to do the job.<br><br>"; // Revert back to the original text
       buttonElement.textContent = "You're kidding?!"; // Revert back to the original button text
     }
   }
@@ -83,72 +92,73 @@ const client = mqtt.connect(
 client.on("connect", function () {
   console.log("connected!");
   client.subscribe("hello");
+  client.publish("chat", "rrrr");
 });
 
 client.on("message", function (topic, message) {
   console.log(topic + ": " + message.toString());
 });
 
-document.querySelector("#enkel de\nmannelijke titel").addEventListener("click", function () {
-  client.publish("steer", "M");
-});
+// document.querySelector("#enkel de\nmannelijke titel").addEventListener("click", function () {
+//   client.publish("steer", "M");
+// });
 
-document.querySelector("de mannelijke en\nvrouwelijke titel").addEventListener("click", function () {
-  client.publish("steer", "H");
-});
+// document.querySelector("de mannelijke en\nvrouwelijke titel").addEventListener("click", function () {
+//   client.publish("steer", "H");
+// });
 
-document.querySelector("#jongens").addEventListener("click", function () {
-  client.publish("steer", "B");
-});
+// document.querySelector("#jongens").addEventListener("click", function () {
+//   client.publish("steer", "B");
+// });
 
-document.querySelector("meisjes").addEventListener("click", function () {
-  client.publish("steer", "G");
-});
+// document.querySelector("meisjes").addEventListener("click", function () {
+//   client.publish("steer", "G");
+// });
 
-document.querySelector("6 jaar").addEventListener("click", function () {
-  client.publish("steer", "6");
-});
+// document.querySelector("6 jaar").addEventListener("click", function () {
+//   client.publish("steer", "6");
+// });
 
-document.querySelector("7 jaar").addEventListener("click", function () {
-  client.publish("steer", "7");
-});
+// document.querySelector("7 jaar").addEventListener("click", function () {
+//   client.publish("steer", "7");
+// });
 
-document.querySelector("8 jaar").addEventListener("click", function () {
-  client.publish("steer", "8");
-});
+// document.querySelector("8 jaar").addEventListener("click", function () {
+//   client.publish("steer", "8");
+// });
 
-document.querySelector("9 jaar").addEventListener("click", function () {
-  client.publish("steer", "9");
-});
+// document.querySelector("9 jaar").addEventListener("click", function () {
+//   client.publish("steer", "9");
+// });
 
-document.querySelector("10 jaar").addEventListener("click", function () {
-  client.publish("steer", "0");
-});
+// document.querySelector("10 jaar").addEventListener("click", function () {
+//   client.publish("steer", "0");
+// });
 
-document.querySelector("11 jaar").addEventListener("click", function () {
-  client.publish("steer", "1");
-});
+// document.querySelector("11 jaar").addEventListener("click", function () {
+//   client.publish("steer", "1");
+// });
 
-document.querySelector("12 jaar").addEventListener("click", function () {
-  client.publish("steer", "2");
-});
+// document.querySelector("12 jaar").addEventListener("click", function () {
+//   client.publish("steer", "2");
+// });
 
-document.querySelector("enkel mannen").addEventListener("click", function () {
-  client.publish("steer", "0");
-});
+// document.querySelector("enkel mannen").addEventListener("click", function () {
+//   client.publish("steer", "0");
+// });
 
-document.querySelector("voornamelijk mannen").addEventListener("click", function () {
-  client.publish("steer", "M");
-});
+// document.querySelector("voornamelijk mannen").addEventListener("click", function () {
+//   client.publish("steer", "M");
+// });
 
-document.querySelector("zowel mannen als vrouwen").addEventListener("click", function () {
-  client.publish("steer", "B");
-});
+// document.querySelector("zowel mannen als vrouwen").addEventListener("click", function () {
+//   client.publish("steer", "B");
+// });
 
-document.querySelector("voornamelijk vrouwen").addEventListener("click", function () {
-  client.publish("steer", "W");
-});
+// document.querySelector("voornamelijk vrouwen").addEventListener("click", function () {
+//   client.publish("steer", "W");
+// });
 
-document.querySelector("enkel vrouwen").addEventListener("click", function () {
-  client.publish("steer", "Y");
-});
+// document.querySelector("enkel vrouwen").addEventListener("click", function () {
+//   client.publish("steer", "Y");
+// });

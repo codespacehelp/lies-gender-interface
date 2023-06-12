@@ -103,15 +103,10 @@ class Sim {
     });
   }
 
-  updatePhysicalInterface() {
-    console.log(this.conns);
-
-    // client.publish("chat", "mb6o");
-  }
-
   /*Aan en af klikken van Peeps
 Om ze actief te maken*/
   onPointerDown(e) {
+    e.preventDefault();
     const peep = this.hitTest(e.clientX, e.clientY);
     if (peep) {
       // console.log(peep);
@@ -206,6 +201,8 @@ Om ze actief te maken*/
         x: 370,
         y: 190,
         label: "enkel de\nmannelijke titel",
+        index: 0,
+        command: "m",
         active: false,
         sim: this,
       })
@@ -216,6 +213,8 @@ Om ze actief te maken*/
         x: 370,
         y: 275,
         label: "de mannelijke en\nvrouwelijke titel",
+        index: 0,
+        command: "b",
         active: false,
         sim: this,
       })
@@ -226,6 +225,8 @@ Om ze actief te maken*/
         x: 560,
         y: 190,
         label: "jongens",
+        index: 1,
+        command: "b",
         active: false,
         sim: this,
       })
@@ -236,6 +237,8 @@ Om ze actief te maken*/
         x: 560,
         y: 275,
         label: "meisjes",
+        index: 1,
+        command: "g",
         active: false,
         sim: this,
       })
@@ -247,6 +250,8 @@ Om ze actief te maken*/
         x: 750,
         y: 190,
         label: "6 jaar",
+        index: 2,
+        command: "6",
         active: false,
         sim: this,
       })
@@ -257,6 +262,8 @@ Om ze actief te maken*/
         x: 750,
         y: 275,
         label: "7 jaar",
+        index: 2,
+        command: "7",
         active: false,
         sim: this,
       })
@@ -317,6 +324,8 @@ Om ze actief te maken*/
         x: 940,
         y: 190,
         label: "enkel mannen",
+        index: 3,
+        command: "o",
         active: false,
         sim: this,
       })
@@ -327,6 +336,8 @@ Om ze actief te maken*/
         x: 940,
         y: 275,
         label: "voornamelijk mannen",
+        index: 3,
+        command: "m",
         active: false,
         sim: this,
       })
@@ -337,6 +348,8 @@ Om ze actief te maken*/
         x: 940,
         y: 360,
         label: "zowel mannen als vrouwen",
+        index: 3,
+        command: "b",
         active: false,
         sim: this,
       })
@@ -347,6 +360,8 @@ Om ze actief te maken*/
         x: 940,
         y: 445,
         label: "voornamelijk vrouwen",
+        index: 3,
+        command: "w",
         active: false,
         sim: this,
       })
@@ -357,6 +372,8 @@ Om ze actief te maken*/
         x: 940,
         y: 530,
         label: "enkel vrouwen",
+        index: 4,
+        command: "f",
         active: false,
         sim: this,
       })
@@ -371,6 +388,26 @@ Om ze actief te maken*/
     //   })
     // );
     //console.log(this.conns);
+  }
+
+  updatePhysicalInterface() {
+    console.log(this.conns);
+    let command = ["?", "?", "?", "?"];
+    for (const conn of this.conns) {
+      const from = conn.from;
+      const to = conn.to;
+      command[from.index] = from.command;
+      command[to.index] = to.command;
+    }
+
+    command = command.join("");
+    console.log(command);
+    if (command.includes("?")) {
+      client.publish("chat", "rrrr");
+      return;
+    }
+
+    client.publish("chat", command);
   }
 
   /*Hier oproepen, gemaakt in Peeps
