@@ -1,3 +1,22 @@
+#include <WiFi.h>
+#include <PubSubClient.h>
+
+#define MIN(a,b) (((a)<(b))?(a):(b))
+
+const char* ssid = "dlink-3MR6";
+const char* password = "royalcheese820";
+
+const char* mqttServer = "discodonkey315.cloud.shiftr.io";
+const int mqttPort = 1883;
+const char* mqttUser = "discodonkey315";
+const char* mqttPassword = "J7Z5SMjyxjahZhhP";
+
+
+void onMessage(const char* topic, byte* payload, unsigned int length);
+
+WiFiClient espClient;
+PubSubClient client(espClient);
+
 int GPIOS0 = 15;
 int GPIOS1 = 2;
 int GPIOS2 = 0;
@@ -171,34 +190,86 @@ void setup() {
   pinMode(GPIOSIG7, OUTPUT);
 
   Serial.begin(115200); 
+
+    WiFi.begin(ssid, password);
+
+  Serial.println("Connecting to Wi-Fi...");
+  while (WiFi.status() != WL_CONNECTED) {
+    delay(500);
+    Serial.print(".");
+  }
+  Serial.println("");
+  Serial.print("Connected to Wi-Fi. IP = ");
+  Serial.println(WiFi.localIP());
+
+  client.setServer(mqttServer, mqttPort);
+  client.setCallback(onMessage);
+
+
 }
 
 void loop() {
+
+     if (!client.connected()) {
+    reconnect();
+  }
+  client.loop();
+}
+
+void reconnect() {
+  while (!client.connected()) {
+    Serial.print("Attempting MQTT connection...");
+    String clientId = "esp32";
+    if (client.connect(clientId.c_str(), mqttUser, mqttPassword)) {
+      Serial.println(" OK!");
+      client.publish("chat", "esp32_connected");
+      client.subscribe("steer");
+
+      digitalWrite(forwardPin, HIGH);
+      delay(200);
+      digitalWrite(forwardPin, LOW);
+      delay(200);
+      digitalWrite(forwardPin, HIGH);
+      delay(200);
+      digitalWrite(forwardPin, LOW);
+      delay(200);
+
+    } else {
+      Serial.print("failed, rc=");
+      Serial.print(client.state());
+      Serial.println(" try again in 5 seconds");
+      // Wait 5 seconds before retrying
+      delay(5000);
+    }
+  }
+}
+
+
+
+void onMessage(const char* topic, byte* payload, unsigned int length) {
+
   digitalWrite(GPIOEN, HIGH);
   digitalWrite(GPIOS0, HIGH);
+ 
+//  while (Serial.available() > 0) {
+//     delay(100);
+//   }
+ 
+//   Serial.println("Give Option : (e.g. mb6o)");
+//   String input = Serial.readString();
 
-  Serial.println("Give Option 1");
+  char* message = (char*) payload;
 
-  while (Serial.available() > 0) {
-  }
-
-  String input1 = Serial.readString();
-  Serial.println("Give Option 2");
-  String input2 = Serial.readString();
-  Serial.println("Give Option 3");
-  String input3 = Serial.readString();
-  Serial.println("Give Option 4");
-  String input4 = Serial.readString();
-  switch (tolower(input1[0])) {
+  switch (tolower(message[0])) {
     case 'm':
       
-      switch (tolower(input2[0])) {
+      switch (tolower(message[1])) {
         case 'b':
           
-          switch (tolower(input3[0])) {
+          switch (tolower(message[2])) {
             case '6':
               
-              switch (tolower(input4[0])) {
+              switch (tolower(message[3])) {
                 case 'o':
                   digitalWrite(GPIOS0, LOW);
                   digitalWrite(GPIOS1, LOW);
@@ -272,7 +343,7 @@ void loop() {
               }
               break;
             case '7':
-              switch (tolower(input4[0])) {
+              switch (tolower(message[3])) {
                 case 'o':
                   digitalWrite(GPIOS0, HIGH);
                   digitalWrite(GPIOS1, LOW);
@@ -346,7 +417,7 @@ void loop() {
               }
               break;
             case '8':
-              switch (tolower(input4[0])) {
+              switch (tolower(message[3])) {
                 case 'o':
                   digitalWrite(GPIOS0, LOW);
                   digitalWrite(GPIOS1, HIGH);
@@ -420,7 +491,7 @@ void loop() {
               }
               break;
             case '9':
-              switch (tolower(input4[0])) {
+              switch (tolower(message[3])) {
                 case 'o':
                   digitalWrite(GPIOS0, HIGH);
                   digitalWrite(GPIOS1, HIGH);
@@ -494,7 +565,7 @@ void loop() {
               }
               break;
             case '10':
-              switch (tolower(input4[0])) {
+              switch (tolower(message[3])) {
                 case 'o':
                   digitalWrite(GPIOS0, LOW);
                   digitalWrite(GPIOS1, LOW);
@@ -568,7 +639,7 @@ void loop() {
               }
               break;
             case '11':
-              switch (tolower(input4[0])) {
+              switch (tolower(message[3])) {
                 case 'o':
                   digitalWrite(GPIOS0, HIGH);
                   digitalWrite(GPIOS1, LOW);
@@ -642,7 +713,7 @@ void loop() {
               }
               break;
             case '12':
-              switch (tolower(input4[0])) {
+              switch (tolower(message[3])) {
                 case 'o':
                   digitalWrite(GPIOS0, LOW);
                   digitalWrite(GPIOS1, HIGH);
@@ -718,9 +789,9 @@ void loop() {
           }
           break;
         case 'g':
-          switch (tolower(input3[0])) {
+          switch (tolower(message[2])) {
             case '6':
-              switch (tolower(input4[0])) {
+              switch (tolower(message[3])) {
                 case 'o':
                   digitalWrite(GPIOS0, HIGH);
                   digitalWrite(GPIOS1, HIGH);
@@ -794,7 +865,7 @@ void loop() {
               }
               break;
             case '7':
-              switch (tolower(input4[0])) {
+              switch (tolower(message[3])) {
                 case 'o':
                   digitalWrite(GPIOS0, LOW);
                   digitalWrite(GPIOS1, LOW);
@@ -868,7 +939,7 @@ void loop() {
               }
               break;
             case '8':
-              switch (tolower(input4[0])) {
+              switch (tolower(message[3])) {
                 case 'o':
                   digitalWrite(GPIOS0, HIGH);
                   digitalWrite(GPIOS1, LOW);
@@ -942,7 +1013,7 @@ void loop() {
               }
               break;
             case '9':
-              switch (tolower(input4[0])) {
+              switch (tolower(message[3])) {
                 case 'o':
                   digitalWrite(GPIOS0, LOW);
                   digitalWrite(GPIOS1, HIGH);
@@ -1016,7 +1087,7 @@ void loop() {
               }
               break;
             case '10':
-              switch (tolower(input4[0])) {
+              switch (tolower(message[3])) {
                 case 'o':
                   digitalWrite(GPIOS0, HIGH);
                   digitalWrite(GPIOS1, HIGH);
@@ -1090,7 +1161,7 @@ void loop() {
               }
               break;
             case '11':
-              switch (tolower(input4[0])) {
+              switch (tolower(message[3])) {
                 case 'o':
                   digitalWrite(GPIOS0, LOW);
                   digitalWrite(GPIOS1, LOW);
@@ -1164,7 +1235,7 @@ void loop() {
               }
               break;
             case '12':
-              switch (tolower(input4[0])) {
+              switch (tolower(message[3])) {
                 case 'o':
                   digitalWrite(GPIOS0, HIGH);
                   digitalWrite(GPIOS1, LOW);
@@ -1246,11 +1317,11 @@ void loop() {
      
       break;
     case 'b': 
-      switch (tolower(input2[0])) {
+      switch (tolower(message[1])) {
         case 'b':
-          switch (tolower(input3[0])) {
+          switch (tolower(message[2])) {
             case '6':
-              switch (tolower(input4[0])) {
+              switch (tolower(message[3])) {
                 case 'o':
                   digitalWrite(GPIOS0, LOW);
                   digitalWrite(GPIOS1, LOW);
@@ -1324,7 +1395,7 @@ void loop() {
               }
               break;
             case '7':
-              switch (tolower(input4[0])) {
+              switch (tolower(message[3])) {
                 case 'o':
                   digitalWrite(GPIOS0, HIGH);
                   digitalWrite(GPIOS1, LOW);
@@ -1398,7 +1469,7 @@ void loop() {
               }
               break;
             case '8':
-              switch (tolower(input4[0])) {
+              switch (tolower(message[3])) {
                 case 'o':
                   digitalWrite(GPIOS0, LOW);
                   digitalWrite(GPIOS1, HIGH);
@@ -1472,7 +1543,7 @@ void loop() {
               }
               break;
             case '9':
-              switch (tolower(input4[0])) {
+              switch (tolower(message[3])) {
                 case 'o':
                   digitalWrite(GPIOS0, HIGH);
                   digitalWrite(GPIOS1, HIGH);
@@ -1546,7 +1617,7 @@ void loop() {
               }
               break;
             case '10': 
-              switch (tolower(input4[0])) {
+              switch (tolower(message[3])) {
                 case 'o':
                   digitalWrite(GPIOS0, LOW);
                   digitalWrite(GPIOS1, LOW);
@@ -1620,7 +1691,7 @@ void loop() {
               }
               break;
             case '11':
-              switch (tolower(input4[0])) {
+              switch (tolower(message[3])) {
                 case 'o':
                   digitalWrite(GPIOS0, HIGH);
                   digitalWrite(GPIOS1, LOW);
@@ -1694,7 +1765,7 @@ void loop() {
               }
               break;
             case '12':
-              switch (tolower(input4[0])) {
+              switch (tolower(message[3])) {
                 case 'o':
                   digitalWrite(GPIOS0, LOW);
                   digitalWrite(GPIOS1, HIGH);
@@ -1770,9 +1841,9 @@ void loop() {
           }
           break;
         case 'g':
-          switch (tolower(input3[0])) {
+          switch (tolower(message[2])) {
             case '6':
-              switch (tolower(input4[0])) {
+              switch (tolower(message[3])) {
                 case 'o':
                   digitalWrite(GPIOS0, HIGH);
                   digitalWrite(GPIOS1, HIGH);
@@ -1846,7 +1917,7 @@ void loop() {
               }
               break;
             case '7':
-              switch (tolower(input4[0])) {
+              switch (tolower(message[3])) {
                 case 'o':
                   digitalWrite(GPIOS0, LOW);
                   digitalWrite(GPIOS1, LOW);
@@ -1920,7 +1991,7 @@ void loop() {
               }
               break;
             case '8':
-              switch (tolower(input4[0])) {
+              switch (tolower(message[3])) {
                 case 'o':
                   digitalWrite(GPIOS0, HIGH);
                   digitalWrite(GPIOS1, LOW);
@@ -1994,7 +2065,7 @@ void loop() {
               }
               break;
             case '9':
-              switch (tolower(input4[0])) {
+              switch (tolower(message[3])) {
                 case 'o':
                   digitalWrite(GPIOS0, LOW);
                   digitalWrite(GPIOS1, HIGH);
@@ -2068,7 +2139,7 @@ void loop() {
               }
               break;
             case '10':
-              switch (tolower(input4[0])) {
+              switch (tolower(message[3])) {
                 case 'o':
                   digitalWrite(GPIOS0, HIGH);
                   digitalWrite(GPIOS1, HIGH);
@@ -2142,7 +2213,7 @@ void loop() {
               }
               break;
             case '11':
-              switch (tolower(input4[0])) {
+              switch (tolower(message[3])) {
                 case 'o':
                   digitalWrite(GPIOS0, LOW);
                   digitalWrite(GPIOS1, LOW);
@@ -2216,7 +2287,7 @@ void loop() {
               }
               break;
             case '12':
-              switch (tolower(input4[0])) {
+              switch (tolower(message[3])) {
                 case 'o':
                   digitalWrite(GPIOS0, HIGH);
                   digitalWrite(GPIOS1, LOW);
