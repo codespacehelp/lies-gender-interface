@@ -24,7 +24,7 @@ function preloadImages() {
 }
 
 /*Aangeven om te wachten tot de beelden zijn geladen
-OP het einde moet animate staan, om het effecteif te tekenen*/
+OP het einde moet animate staan, om het effectief te tekenen*/
 function main() {
   preloadImages().then((loadedImages) => {
 
