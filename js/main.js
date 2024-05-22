@@ -85,18 +85,54 @@ main();
 
 //Connection with Shifter
 const client = mqtt.connect(
-  "mqtts://prickleking364:EoAqmtU9W9XI9fbR@prickleking364.cloud.shiftr.io",
+  // "wss://prickleking364:EoAqmtU9W9XI9fbR@prickleking364.cloud.shiftr.io",
+   "wss://algorithmicgaze:MMtAlPplCmwWUyqR@algorithmicgaze.cloud.shiftr.io",
   {
-    clientId: "javascript",
+    clientId: "lies-web",
   }
 );
 
 client.on("connect", function () {
   console.log("connected!");
-  client.subscribe("hello");
-  client.publish("chat", "rrrr");
+  client.subscribe("lies");
+  client.publish("lies", "rrrr"); //PROBLEM! DONT SEND TO CHAT BUT TO ADRUINO
+  
 });
 
 client.on("message", function (topic, message) {
   console.log(topic + ": " + message.toString());
+});
+
+//ENTER FULL SCREEN MODE, STOP SCROLLING AND ZOOMING
+document.addEventListener('DOMContentLoaded', (event) => {
+  function requestFullscreen() {
+      const element = document.documentElement;
+      if (element.requestFullscreen) {
+          element.requestFullscreen();
+      } else if (element.mozRequestFullScreen) { // Firefox
+          element.mozRequestFullScreen();
+      } else if (element.webkitRequestFullscreen) { // Chrome, Safari and Opera
+          element.webkitRequestFullscreen();
+      } else if (element.msRequestFullscreen) { // IE/Edge
+          element.msRequestFullscreen();
+      }
+  }
+
+  // Request fullscreen when the page loads
+  // requestFullscreen();
+
+  // Request fullscreen on user interaction (required for iOS)
+  document.addEventListener('click', () => {
+      requestFullscreen();
+  });
+
+  // Prevent default touch actions that might cause scrolling
+  document.addEventListener('touchmove', function(event) {
+      event.preventDefault();
+  }, { passive: false });
+
+  // Prevent pinch to zoom
+  document.addEventListener('gesturestart', function(event) {
+      event.preventDefault();
+  });
 });

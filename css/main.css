@@ -7,6 +7,13 @@ body {
   width: 1024px;
   height: 768px;
   user-select: none !important;
+  touch-action: pan-x pan-y;
+  touch-action: manipulation;
+}
+
+html, body {
+  overflow: hidden;
+  height: 100%;
 }
 
 footer {

@@ -8,9 +8,9 @@ class Sim {
     window.addEventListener("pointermove", this.onPointerMove.bind(this));
     window.addEventListener("pointerup", this.onPointerUp.bind(this));
     //Same maar voor tablet
-    // window.addEventListener("touchstart", this.onTouchStart.bind(this));
-    // window.addEventListener("touchmove", this.onTouchMove.bind(this));
-    // window.addEventListener("touchend", this.onTouchEnd.bind(this));
+    window.addEventListener("touchstart", this.onTouchStart.bind(this));
+    window.addEventListener("touchmove", this.onTouchMove.bind(this));
+    window.addEventListener("touchend", this.onTouchEnd.bind(this));
   }
 
   /*Hittest om aan te klikken*/
@@ -70,7 +70,7 @@ class Sim {
   }
 
   /*Om te connecteren met lichtjes
-  Zo kan event worden doorgestuurd naar Shifter, om dan naar Arduino te gaan*/
+  Zo kan event worden doorgestuurd naar Shiftr, om dan naar Arduino te gaan*/
   makeNewConnection(from, to) {
     this.conns.push(
       new Conn({
@@ -120,20 +120,20 @@ Om ze actief te maken*/
       });
     }
   }
-  //   onTouchStart(e) {
-  //     const touch = e.touches[0]; // Get the first touch point
-  //     const peep = this.hitTest(touch.clientX, touch.clientY);
-  //     if (peep) {
-  //       peep.active = !peep.active;
-  //       this.activeConn = new Conn({
-  //         from: peep,
-  //         to: {
-  //           x: touch.clientX,
-  //           y: touch.clientY,
-  //         },
-  //       });
-  //     }
-  //   }
+    onTouchStart(e) {
+      const touch = e.touches[0]; // Get the first touch point
+      const peep = this.hitTest(touch.clientX, touch.clientY);
+      if (peep) {
+        peep.active = !peep.active;
+        this.activeConn = new Conn({
+          from: peep,
+          to: {
+            x: touch.clientX,
+            y: touch.clientY,
+          },
+        });
+      }
+    }
 
   onPointerMove(e) {
     this.mouseX = e.clientX;
@@ -142,20 +142,20 @@ Om ze actief te maken*/
       this.activeConn.to = {
         x: e.clientX,
         y: e.clientY,
-      };
+        };
+      }
     }
-  }
-  //   onTouchMove(e) {
-  //     const touch = e.touches[0]; // Get the first touch point
-  //     this.mouseX = touch.clientX;
-  //     this.mouseY = touch.clientY;
-  //     if (this.activeConn) {
-  //       this.activeConn.to = {
-  //         x: touch.clientX,
-  //         y: touch.clientY,
-  //       };
-  //     }
-  //   }
+    onTouchMove(e) {
+      const touch = e.touches[0]; // Get the first touch point
+      this.mouseX = touch.clientX;
+      this.mouseY = touch.clientY;
+      if (this.activeConn) {
+        this.activeConn.to = {
+          x: touch.clientX,
+          y: touch.clientY,
+        };
+      }
+    }
 
   /*Hier wordt ook nieuwe connectie gemaakt*/
   onPointerUp(e) {
@@ -171,27 +171,27 @@ Om ze actief te maken*/
         this.createConnectionIfValid(this.activeConn.from, targetPeep);
         this.updatePhysicalInterface();
         targetPeep.active = true;
+       }
       }
-    }
-
     this.activeConn = null;
-  }
-  //   onTouchEnd(e) {
-  //     for (const peep of this.peeps) {
-  //       peep.active = false;
-  //     }
-  //     if (this.activeConn) {
-  //       const touch = e.changedTouches[0]; // Get the first touch point that ended
-  //       const targetPeep = this.hitTest(touch.clientX, touch.clientY);
-  //       if (targetPeep) {
-  //         this.removeConnectionIfExists(this.activeConn.from, targetPeep);
-  //         this.createConnectionIfValid(this.activeConn.from, targetPeep);
-  //         targetPeep.active = true;
-  //       }
-  //     }
+    }
+  
+    onTouchEnd(e) {
+      for (const peep of this.peeps) {
+        peep.active = false;
+      }
+      if (this.activeConn) {
+        const touch = e.changedTouches[0]; // Get the first touch point that ended
+        const targetPeep = this.hitTest(touch.clientX, touch.clientY);
+        if (targetPeep) {
+          this.removeConnectionIfExists(this.activeConn.from, targetPeep);
+          this.createConnectionIfValid(this.activeConn.from, targetPeep);
+          targetPeep.active = true;
+        }
+      }
 
-  //     this.activeConn = null;
-  //   }
+      this.activeConn = null;
+    }
 
   /*Tekenen Peeps*/
   buildSim() {
@@ -412,12 +412,12 @@ Om ze actief te maken*/
 
     command = command.join("");
     console.log(command);
-    if (command.includes("?")) {
+/*     if (command.includes("?")) {
       client.publish("chat", "rrrr");
       return;
-    }
+    } */
 
-    client.publish("chat", command);
+    client.publish("lies", command);
   }
 
   /*Hier oproepen, gemaakt in Peeps
