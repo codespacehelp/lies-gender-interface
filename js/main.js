@@ -115,18 +115,33 @@ function initFullscreenButton() {
   buttonEl.className = "fullscreen__button";
   buttonEl.textContent = "Fullscreen";
   buttonEl.addEventListener("click", () => {
-    console.log("clic");
-    document.documentElement.requestFullscreen();
+    _requestFullscreen();
     removeFullscreenButton();
   });
   fullscreenEl.appendChild(buttonEl);
   setTimeout(removeFullscreenButton, 5000);
   window.addEventListener("keypress", (e) => {
     if (e.key === "f") {
-      document.documentElement.requestFullscreen();
+      _requestFullscreen();
       removeFullscreenButton();
     }
   });
+}
+
+function _requestFullscreen() {
+  const element = document.documentElement;
+  if (element.requestFullscreen) {
+    element.requestFullscreen();
+  } else if (element.mozRequestFullScreen) {
+    // Firefox
+    element.mozRequestFullScreen();
+  } else if (element.webkitRequestFullscreen) {
+    // Chrome, Safari and Opera
+    element.webkitRequestFullscreen();
+  } else if (element.msRequestFullscreen) {
+    // IE/Edge
+    element.msRequestFullscreen();
+  }
 }
 
 // STOP SCROLLING AND ZOOMING
