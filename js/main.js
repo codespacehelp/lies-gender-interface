@@ -27,7 +27,6 @@ function preloadImages() {
 OP het einde moet animate staan, om het effectief te tekenen*/
 function main() {
   preloadImages().then((loadedImages) => {
-
     Object.keys(IMAGES).forEach((key, index) => {
       IMAGES[key] = loadedImages[index];
     });
@@ -86,7 +85,7 @@ main();
 //Connection with Shifter
 const client = mqtt.connect(
   // "wss://prickleking364:EoAqmtU9W9XI9fbR@prickleking364.cloud.shiftr.io",
-   "wss://algorithmicgaze:MMtAlPplCmwWUyqR@algorithmicgaze.cloud.shiftr.io",
+  "wss://algorithmicgaze:MMtAlPplCmwWUyqR@algorithmicgaze.cloud.shiftr.io",
   {
     clientId: "lies-web",
   }
@@ -96,43 +95,54 @@ client.on("connect", function () {
   console.log("connected!");
   client.subscribe("lies");
   client.publish("lies", "rrrr"); //PROBLEM! DONT SEND TO CHAT BUT TO ADRUINO
-  
 });
 
 client.on("message", function (topic, message) {
   console.log(topic + ": " + message.toString());
 });
 
-//ENTER FULL SCREEN MODE, STOP SCROLLING AND ZOOMING
-document.addEventListener('DOMContentLoaded', (event) => {
-  function requestFullscreen() {
-      const element = document.documentElement;
-      if (element.requestFullscreen) {
-          element.requestFullscreen();
-      } else if (element.mozRequestFullScreen) { // Firefox
-          element.mozRequestFullScreen();
-      } else if (element.webkitRequestFullscreen) { // Chrome, Safari and Opera
-          element.webkitRequestFullscreen();
-      } else if (element.msRequestFullscreen) { // IE/Edge
-          element.msRequestFullscreen();
-      }
+// ADD BUTTON THAT ALLOWS TO ENTER FULL SCREEN MODE
+function initFullscreenButton() {
+  function removeFullscreenButton() {
+    const fullscreenEl = document.querySelector(".fullscreen");
+    if (fullscreenEl) {
+      fullscreenEl.parentElement.removeChild(fullscreenEl);
+    }
   }
 
-  // Request fullscreen when the page loads
-  // requestFullscreen();
-
-  // Request fullscreen on user interaction (required for iOS)
-  document.addEventListener('click', () => {
-      requestFullscreen();
+  const fullscreenEl = document.querySelector(".fullscreen");
+  const buttonEl = document.createElement("button");
+  buttonEl.className = "fullscreen__button";
+  buttonEl.textContent = "Fullscreen";
+  buttonEl.addEventListener("click", () => {
+    console.log("clic");
+    document.documentElement.requestFullscreen();
+    removeFullscreenButton();
   });
-
-  // Prevent default touch actions that might cause scrolling
-  document.addEventListener('touchmove', function(event) {
-      event.preventDefault();
-  }, { passive: false });
-
-  // Prevent pinch to zoom
-  document.addEventListener('gesturestart', function(event) {
-      event.preventDefault();
+  fullscreenEl.appendChild(buttonEl);
+  setTimeout(removeFullscreenButton, 5000);
+  window.addEventListener("keypress", (e) => {
+    if (e.key === "f") {
+      document.documentElement.requestFullscreen();
+      removeFullscreenButton();
+    }
   });
+}
+
+// STOP SCROLLING AND ZOOMING
+
+// Prevent default touch actions that might cause scrolling
+document.addEventListener(
+  "touchmove",
+  function (event) {
+    event.preventDefault();
+  },
+  { passive: false }
+);
+
+// Prevent pinch to zoom
+document.addEventListener("gesturestart", function (event) {
+  event.preventDefault();
 });
+
+initFullscreenButton();
